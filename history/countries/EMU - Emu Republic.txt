@@ -1,0 +1,751 @@
+﻿capital = 674
+
+
+oob = "EMU_1936"
+add_political_power = 1200
+set_stability = 1
+set_war_support = 1
+set_research_slots = 4
+add_manpower 1250000
+set_convoys = 25000
+# Starting tech
+set_technology = {
+    agile_emus = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_logistics_company = 1
+    tech_signal_company = 1	
+	tech_engineers = 1
+	tech_engineers2 = 1
+	tech_engineers3 = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	tech_recon3 = 1
+	tech_recon4 = 1
+	tech_military_police = 1
+	tech_military_police2 = 1
+	tech_maintenance_company = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antiair = 1
+	interwar_antitank = 1
+	gwtank = 1
+	basic_light_tank = 1
+	improved_light_tank = 1
+	basic_heavy_tank = 1
+	early_fighter = 1
+	fighter1 = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	transport = 1
+	landing_craft = 1
+	trench_warfare = 1
+	air_superiority = 1
+	infrastructure_destruction = 1
+	home_defence = 1
+	naval_strike_tactics = 1
+	formation_flying = 1
+	dive_bombing = 1
+	force_rotation = 1
+	fighter_baiting = 1
+	low_echelon_support = 1
+	dispersed_fighting = 1
+	operational_destruction = 1
+	fighter_veteran_initiative = 1
+	grand_battle_plan = 1
+	trench_warfare = 1
+	prepared_defense = 1
+	grand_assault = 1
+	mobile_warfare = 1
+	delay = 1
+	superior_firepower = 1
+	sup_delay = 1
+	mobile_defence = 1
+	mass_assault = 1
+	pocket_defence = 1
+	defence_in_depth = 1
+	large_front_operations = 1
+	deep_operations = 1
+	operational_concentration = 1
+	peoples_army = 1
+	fleet_in_being = 1
+	subsidiary_carrier_role = 1
+	hunter_killer_groups = 1
+	floating_fortress = 1
+	convoy_sailing = 1
+	convoy_escorts = 1
+	escort_carriers = 1
+	submarine_operations = 1
+	undersea_blockade = 1
+	trade_interdiction = 1
+	convoy_interdiction_ti = 1
+	convoy_escorts_bs = 1
+	floating_airfield_bs = 1
+	unrestricted_submarine_warfare = 1
+	wolfpacks = 1
+	advanced_submarine_warfare = 1
+	combined_operations_raiding = 1
+	raider_patrols = 1
+	capital_ship_raiders = 1
+	battlefleet_concentration_ti = 1
+	carrier_operations = 1
+	convoy_sailing_ti = 1
+	base_strike = 1
+	carrier_primacy = 1
+	carrier_task_forces = 1
+	carrier_battlegroups = 1
+	escort_patrols = 1
+	massed_strikes = 1
+	floating_fortress_bs = 1
+	battlefleet_concentration = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	advanced_machine_tools = 1
+	synth_oil_experiments = 1
+	oil_processing = 1
+	improved_oil_processing = 1
+	construction1 = 1
+	construction2 = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+    motorised_infantry = 1
+    fuel_silos = 1	
+}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		basic_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_secondary_battery = 1
+		basic_fire_control_system = 1
+	}
+}
+
+add_ideas = {
+        victors_of_the_emu_war
+		bad_soldiers
+		delusional_commanders
+
+		#laws		
+		service_by_requirement
+		broken_economy
+		free_trade_emu
+	}
+	
+add_timed_idea = {
+    idea = treaty_of_uluru
+	days = 1438
+}	
+
+
+1939.1.1 = {
+    add_named_threat = { threat = 25 name = 1939_bookmark_threat2 }
+	add_political_power = 2000
+	add_manpower = 1500000
+	set_stability = 1
+	set_war_support = 1
+	oob = "EMU_1939"
+	
+
+	add_ideas = {
+	    victors_of_the_emu_war
+		superior_beings
+		rebuild_armament_factories_1
+		
+		#laws		
+		service_by_requirement
+		war_economy
+		export_focus
+		grek
+		kawraak
+		oork
+	}
+	
+	remove_ideas = {
+	    treaty_of_uluru
+		bad_soldiers
+	}
+	
+	unlock_national_focus = emu_legacy
+	unlock_national_focus = emu_atw
+	unlock_national_focus = emu_superior
+	unlock_national_focus = emu_industry
+	unlock_national_focus = emu_recruit
+	unlock_national_focus = emu_propaganda
+	unlock_national_focus = emu_fort
+	unlock_national_focus = emu_tactics
+	unlock_national_focus = emu_airtactics
+	unlock_national_focus = emu_navaltactics
+	unlock_national_focus = emu_training
+	unlock_national_focus = emu_armyreform
+	unlock_national_focus = emu_navyeffort
+	unlock_national_focus = emu_aireffort
+	unlock_national_focus = emu_armyeffort
+	unlock_national_focus = emu_military1
+	unlock_national_focus = emu_rif
+	unlock_national_focus = emu_fighterfocus
+	unlock_national_focus = emu_fightertactics
+	unlock_national_focus = emu_airdoctrine
+	unlock_national_focus = emu_airdoctrinetwo
+	unlock_national_focus = emu_rocket
+	unlock_national_focus = emu_nuclear
+	unlock_national_focus = emu_nukes
+	unlock_national_focus = emu_researchslot
+	unlock_national_focus = emu_project
+
+	
+	set_technology = {
+		fighter1 = 1
+		tactical_bomber1 = 1
+		basic_light_tank = 1
+		improved_light_tank = 1
+		basic_medium_tank = 1
+		basic_heavy_tank = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		infantry_weapons3 = 1
+		advanced_infantry_weapons2 = 1
+		support_weapons = 1
+		support_weapons2 = 1
+		support_weapons3 = 1
+		support_weapons4 = 1
+		improved_infantry_weapons_2 = 1
+		improved_infantry_weapons_3 = 1
+		infantry_at = 1
+		infantry_at2 = 1
+		night_vision = 1
+		night_vision2 = 1
+		motorised_infantry = 1
+		motorized_rocket_unit = 1
+		mechanised_infantry = 1
+		mechanised_infantry2 = 1
+		mechanised_infantry3 = 1
+		paratroopers = 1
+		paratroopers2 = 1
+		paratroopers3 = 1
+		marines = 1
+		marines2 = 1
+		marines3 = 1
+		tech_mountaineers = 1
+		tech_mountaineers2 = 1
+		tech_mountaineers3 = 1
+		tech_special_forces = 1
+		advanced_special_forces = 1
+		improved_special_forces = 1
+		extreme_environment_training = 1
+		survival_training = 1
+		elite_forces = 1
+		improved_infantry_weapons = 1
+		advanced_infantry_weapons = 1
+		heavy_fighter1 = 1
+		heavy_fighter2 = 1
+		heavy_fighter3 = 1
+		tactical_bomber2 = 1
+		tactical_bomber3 = 1
+		jet_tactical_bomber1 = 1
+		jet_tactical_bomber2 = 1
+	    strategic_bomber1 = 1
+		strategic_bomber2 = 1
+		strategic_bomber3 = 1
+		jet_strategic_bomber1 = 1
+	    fighter2 = 1
+		fighter3 = 1
+		jet_fighter1 = 1
+		jet_fighter2 = 1
+	    cv_early_fighter = 1
+	    cv_naval_bomber1 = 1
+	    naval_bomber1 = 1
+	    naval_bomber2 = 1
+		naval_bomber3 = 1
+	    early_bomber = 1
+	    CAS1 = 1
+	    CAS2 = 1
+	    CAS3 = 1
+		tech_engineers2 = 1
+	    tech_engineers3 = 1
+		tech_engineers4 = 1
+	    tech_recon = 1
+	    tech_recon2 = 1
+	    tech_recon3 = 1
+	    tech_recon4 = 1
+	    tech_military_police = 1
+	    tech_military_police2 = 1
+		tech_military_police3 = 1
+	    tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital2 = 1
+		tech_field_hospital3 = 1
+		tech_field_hospital4 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_signal_company = 1
+		tech_signal_company2 = 1
+		tech_signal_company3 = 1
+		basic_light_tank = 1
+	    improved_light_tank = 1
+	    advanced_light_tank = 1
+	    basic_medium_tank = 1
+	    improved_medium_tank = 1
+		advanced_medium_tank = 1
+	    basic_heavy_tank = 1
+	    improved_heavy_tank = 1
+	    advanced_heavy_tank = 1
+	    super_heavy_tank = 1
+        main_battle_tank = 1		
+    	interwar_artillery = 1
+		artillery1 = 1
+		artillery2 = 1
+		artillery3 = 1
+		artillery4 = 1
+		artillery5 = 1
+		mountain_gun = 1
+		rocket_artillery = 1
+		rocket_artillery2 = 1
+	    interwar_antiair = 1
+		antiair1 = 1
+		antiair2 = 1
+		antiair3 = 1
+		antiair4 = 1
+		antiair5 = 1
+	    interwar_antitank = 1
+		antitank1 = 1
+		antitank2 = 1
+		antitank3 = 1
+		antitank4 = 1
+		antitank5 = 1
+		
+		#doctrines
+		air_superiority = 1
+	    infrastructure_destruction = 1
+	    home_defence = 1
+	    naval_strike_tactics = 1
+	    formation_flying = 1
+	    dive_bombing = 1
+	    force_rotation = 1
+	    fighter_baiting = 1
+	    low_echelon_support = 1
+	    dispersed_fighting = 1
+	    operational_destruction = 1
+	    fighter_veteran_initiative = 1
+		grand_battle_plan = 1
+		trench_warfare = 1
+		prepared_defense = 1
+	    grand_assault = 1
+	    mobile_warfare = 1
+	    delay = 1
+	    superior_firepower = 1
+	    sup_delay = 1
+	    mobile_defence = 1
+	    mass_assault = 1
+	    pocket_defence = 1
+	    defence_in_depth = 1
+	    large_front_operations = 1
+	    deep_operations = 1
+	    operational_concentration = 1
+	    peoples_army = 1
+		fleet_in_being = 1
+	    subsidiary_carrier_role = 1
+	    hunter_killer_groups = 1
+	    floating_fortress = 1
+	    convoy_sailing = 1
+	    convoy_escorts = 1
+	    escort_carriers = 1
+	    undersea_blockade = 1
+	    trade_interdiction = 1
+	    convoy_interdiction_ti = 1
+	    unrestricted_submarine_warfare = 1
+	    wolfpacks = 1
+	    advanced_submarine_warfare = 1
+	    combined_operations_raiding = 1
+    	raider_patrols = 1
+	    capital_ship_raiders = 1
+	    battlefleet_concentration_ti = 1
+	    carrier_operations = 1
+	    convoy_sailing_ti = 1
+	    base_strike = 1
+	    carrier_primacy = 1
+	    carrier_task_forces = 1
+	    floating_airfield_bs 1
+	    carrier_battlegroups = 1
+	    convoy_escorts_bs = 1
+	    escort_patrols = 1
+	    massed_strikes = 1
+	    floating_fortress_bs = 1
+	    battlefleet_concentration = 1	
+		battlefleet_concentration = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		mechanical_computing = 1
+		computing_machine = 1
+		decimetric_radar = 1
+		improved_decimetric_radar = 1
+		centimetric_radar = 1
+		improved_centimetric_radar = 1
+		basic_encryption = 1
+		improved_encryption = 1
+		advanced_encryption = 1
+	    basic_decryption = 1
+		improved_decryption = 1
+		advanced_decryption = 1
+		improved_computing_machine = 1
+		advanced_computing_machine = 1
+		experimental_rockets = 1
+		rocket_engines = 1
+		improved_rocket_engines = 1
+		advanced_rocket_engines = 1
+		jet_engines = 1
+		atomic_research = 1
+		nuclear_reactor = 1
+		nukes = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		assembly_line_production = 1
+		flexible_line = 1
+		streamlined_line = 1
+		improved_equipment_conversion = 1
+		advanced_equipment_conversion = 1
+		synth_oil_experiments = 1
+		oil_processing = 1
+		improved_oil_processing = 1
+		advanced_oil_processing = 1
+		modern_oil_processing = 1
+		rubber_processing = 1
+		improved_rubber_processing = 1
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		construction4 = 1
+		construction5 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		dispersed_industry3 = 1
+		dispersed_industry4 = 1
+		dispersed_industry5 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		excavation1 = 1
+		excavation2 = 1
+		excavation3 = 1
+		excavation4 = 1
+		fuel_refining = 1
+	}
+	
+	if = {
+    limit = {
+	    NOT = { has_dlc = "Man the Guns" }
+	}
+        set_technology = {
+	        basic_submarine = 1
+		    improved_submarine = 1
+		    improved_destroyer = 1
+		    basic_light_cruiser = 1
+		    improved_light_cruiser = 1
+		    basic_battleship = 1
+		    basic_carrier = 1
+		    improved_carrier = 1
+	    }    	
+    }
+    if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_technology = {
+			basic_ship_hull_submarine = 1
+			improved_ship_hull_submarine = 1
+			improved_ship_hull_light = 1
+			improved_ship_hull_cruiser = 1
+			basic_ship_hull_heavy = 1
+			basic_ship_hull_carrier = 1
+			improved_ship_hull_carrier = 1
+			dp_secondary_battery = 1
+			improved_sonar = 1
+		}
+	}
+	
+	set_convoys = 30000
+}
+
+set_politics = {
+
+	parties = {
+		democratic = { 
+			popularity = 0
+		}
+
+		fascism = {
+			popularity = 0
+		}
+		
+		communism = {
+			popularity = 0
+			#banned = no #default is no
+		}
+		
+		neutrality = {
+		    popularity = 0
+		}
+		
+		animalist = {
+		    popularity = 100
+		}
+	}
+	
+	ruling_party = animalist
+	last_election = "1934.9.15"
+	election_frequency = 36
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "John Emu"
+	desc = "POLITICS_JOHN_CURTIN_DESC"
+	picture = "Portrait_Emu_John_Emu.dds"
+	expire = "2500.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Emu Hitler"
+	desc = "POLITICS_ERIC_CAMPBELL_DESC"
+	picture = "Portrait_Emu_Emu_Hitler.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		dictator
+		fascist_demagogue
+	}
+}
+
+create_country_leader = {
+	name = "Josemu Stalimu"
+	desc = "POLITICS_RICHARD_DIXON_DESC"
+	picture = "Portrait_Emu_Josemu_Stalimu.dds"
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "King Emu I"
+	desc = "POLITICS_ERIC_CAMPBELL_DESC"
+	picture = "Portrait_Emu_King_Emu.dds"
+	expire = "1965.1.1"
+	ideology = emuism
+	traits = {
+		emu_war_hero
+		warmonger
+	}
+}
+
+1939.1.1 = {
+	set_politics = {
+
+		parties = {
+			democratic = { 
+				popularity = 10
+			}
+
+			fascism = {
+				popularity = 10
+			}
+			
+			communism = {
+				popularity = 10
+				#banned = no #default is no
+			}
+			
+			neutrality = {
+		        popularity = 10
+		    }
+			
+			animalist = {
+			    popularity = 60
+			}
+		}
+		
+		ruling_party = animalist
+		last_election = "1937.10.23"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+	set_convoys = 250000
+}
+
+create_field_marshal = {
+	name = "King Emu I"
+	id = 8802
+	picture = "Portrait_Emu_King_Emu.dds"
+	traits = { war_hero hill_fighter swamp_fox desert_fox hill_fighter mountaineer urban_assault_specialist ranger armor_officer infantry_officer inflexible_strategist trickster skilled_staffer}
+	skill = 9
+    attack_skill = 9
+    defense_skill = 9
+    planning_skill = 8
+    logistics_skill = 7
+}
+
+
+
+create_corps_commander = {
+	name = "Warrin Raawkann"
+	picture = "Portrait_Emu_Warrin.dds"
+	traits = { desert_fox armor_officer old_guard war_hero }
+	skill = 4
+    attack_skill = 4
+    defense_skill = 4
+    planning_skill = 4
+    logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Henry Wynter"
+	gfx = "GFX_AST_henry_wynter"
+	traits = { }
+	skill = 4
+    attack_skill = 3
+    defense_skill = 4
+    planning_skill = 3
+    logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Alan Vasey"
+	gfx = "GFX_AST_alan_vasey"
+	traits = { hill_fighter }
+	skill = 3
+    attack_skill = 2
+    defense_skill = 4
+    planning_skill = 3
+    logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Horace Robertson"
+	gfx = "GFX_AST_horace_robertson"
+	traits = { desert_fox }
+	skill = 3
+    attack_skill = 3
+    defense_skill = 1
+    planning_skill = 3
+    logistics_skill = 3
+}
+create_corps_commander = {
+	name = "John Northcott"
+	gfx = "GFX_AST_john_northcott"
+	traits = { armor_officer}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_navy_leader = {
+	name = "Septimus Cato"
+	picture = "Portrait_Emu_Navy_Generic_1.dds"
+	traits = { air_controller }
+	skill = 4
+}
+
+create_navy_leader = {
+	name = "Scipio Graatch"
+	picture = "Portrait_Emu_Navy_Generic_2.dds"
+	traits = { }
+	skill = 3
+}
+
+### Ship Variants ###
+
+create_equipment_variant = {
+	name = "Uluru Class"
+	type = light_cruiser_1
+	upgrades = {
+		ship_reliability_upgrade = 3
+		ship_engine_upgrade = 5
+		ship_gun_upgrade = 4
+		ship_anti_air_upgrade = 2
+	}
+}
+
+create_equipment_variant = {
+	name = "Darwin Class"
+	type = heavy_cruiser_1
+	upgrades = {
+		ship_reliability_upgrade = 5
+		ship_engine_upgrade = 5
+		ship_armor_upgrade = 5
+		ship_gun_upgrade = 5
+	}
+}
+
+1939.1.1 = {
+	
+	create_equipment_variant = {
+		name = "Emu Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 5
+			destroyer_engine_upgrade = 5
+			ship_ASW_upgrade = 5
+			ship_anti_air_upgrade = 5
+		}
+	}
+}
