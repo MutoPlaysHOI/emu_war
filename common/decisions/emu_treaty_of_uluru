@@ -1,0 +1,87 @@
+EMU_treaty_of_uluru = {
+
+    renounce_the_treaty = {
+        icon = generic_break_treaty
+
+        cost = 150
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 100
+				
+				ENG = {
+				    num_divisions < 20
+				}
+			}
+		}
+	
+	    fire_only_once = yes
+
+        available = {
+            has_idea = treaty_of_uluru
+			NOT = {
+			    has_decision = negotiate_peace_talks
+			}
+        }
+	
+        complete_effect = {
+            remove_ideas = treaty_of_uluru
+		    add_stability = 0.2
+		    add_war_support = 0.2			
+			ENG = {
+			    country_event = {
+				    id = eng_treaty.1
+					hours = 6
+				}
+			}
+			set_country_flag = treaty_of_uluru_renounced
+			
+			hidden_effect = {
+		        swap_ideas = {
+				    remove_idea = free_trade_emu
+					add_idea = export_focus
+				}
+		    }
+        }
+    }
+	
+	negotiate_peace_talks = {
+	    icon = generic_political_discourse
+		
+		cost = 150
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 100
+				
+				has_opinion = {
+				    target = AST
+					value > 0
+				}
+				
+				has_opinion = {
+				    target = ENG
+					value > 0
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		available = {
+		    has_idea = treaty_of_uluru
+			NOT = {
+			    has_decision = renounce_the_treaty
+				has_country_flag = treaty_of_uluru_renounced
+			}
+		}
+		
+		complete_effect = {
+		    add_stability = -0.1
+		}
+	}
+  
+  
+}
