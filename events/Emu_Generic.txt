@@ -1,0 +1,379 @@
+﻿add_namespace = emu_generic
+add_namespace = emu_genericnews
+
+country_event = {
+    id = emu_generic.1 # anti-animalist rebellions turn into civil war, stability too low
+	title = emu_generic.1.t
+	desc = emu_generic.1.d
+	picture = GFX_report_event_ast_navy
+	
+	is_triggered_only = no
+	
+	trigger = {
+	    has_government = animalist
+	    has_completed_focus = animal_civil_war
+		has_stability < 0.5
+		has_idea = anti_animalist_rebellion
+		NOT = {
+		    has_country_flag = anti_animalist_rebellion
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	immediate = {
+	    set_country_flag = anti_animalist_rebellion
+	}
+	
+	option = {
+	    name = emu_generic.1.a # side with the animalists (democracy)
+		
+		ai_chance = {
+		    factor = 4000
+		}
+		
+		trigger = {
+		    democratic > 0.1
+		}
+		
+		start_civil_war = {
+		    ideology = democratic
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.ab # side with the animalists (fascism)
+		
+		ai_chance = {
+		    factor = 4000
+		}
+		
+		trigger = {
+		    fascism > 0.1
+		}
+		
+		start_civil_war = {
+		    ideology = fascism
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.ac # side with the animalists (communism)
+		
+		ai_chance = {
+		    factor = 4000
+		}
+		
+		trigger = {
+		    communism > 0.1
+		}
+		
+		start_civil_war = {
+		    ideology = communism
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.ad # side with the animalists (neutrality)
+		
+		ai_chance = {
+		    factor = 4000
+		}
+		
+		trigger = {
+		    neutrality > 0.1
+		}
+		
+		start_civil_war = {
+		    ideology = neutrality
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.b # side with the democratic
+		
+		ai_chance = {
+		    factor = 1
+		}
+		
+		trigger = {
+		    democratic > 0.1
+		}
+		
+		set_politics = {
+		    ruling_party = democratic
+			elections_allowed = yes
+		}
+		
+		start_civil_war = {
+		    ideology = animalist
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.ba # side with the fascists
+		
+		ai_chance = {
+		    factor = 1
+		}
+		
+		trigger = {
+		    fascism > 0.1
+		}
+		
+		set_politics = {
+		    ruling_party = fascism
+			elections_allowed = no
+		}
+		
+		start_civil_war = {
+		    ideology = animalist
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.bb # side with the communists
+		
+		ai_chance = {
+		    factor = 1
+		}
+		
+		trigger = {
+		    communism > 0.1
+		}
+		
+		set_politics = {
+		    ruling_party = communism
+			elections_allowed = no
+		}
+		
+		start_civil_war = {
+		    ideology = animalist
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+	
+	option = {
+	    name = emu_generic.1.bc # side with the non-aligned
+		
+		ai_chance = {
+		    factor = 1
+		}
+		
+		trigger = {
+		    neutrality > 0.1
+		}
+		
+		set_politics = {
+		    ruling_party = neutrality
+			elections_allowed = yes
+		}
+		
+		start_civil_war = {
+		    ideology = animalist
+			size = 0.3
+		}
+		
+		hidden_effect = {
+		    remove_ideas = anti_animalist_rebellion
+		}
+	}
+}
+
+country_event = {
+    id = emu_generic.2
+	title = emu_generic.2.t
+	desc = emu_generic.2.d
+	picture = GFX_report_event_emu_civil_war
+	
+	is_triggered_only = no
+	
+	trigger = {
+	    has_government = animalist
+		has_idea = animal_jobs_focus
+		has_completed_focus = animal_jobs
+		has_war_support < 0.5
+		NOT = {
+		    has_country_flag = no_more_animals_in_jobs
+		}
+	}
+	
+	immediate = {
+	    set_country_flag = no_more_animals_in_jobs
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = emu_generic.2.a # obey military, strip animals of right to work
+		
+		ai_chance = {
+		    factor = 40
+			
+			modifier = {
+			    factor = 200
+				has_war_support < 30
+			}
+			modifier = {
+			    factor = 0
+				animalist > 50
+			}
+			modifier = {
+			    factor = 80
+				has_stability < 50
+			}
+		}
+		
+		add_stability = -0.1
+		add_war_support = 0.1
+		add_political_power = 100
+		
+		remove_ideas = {
+		    animal_jobs_focus
+		}
+	}
+	
+	option = {
+	    name = emu_generic.2.b # disobey military, keep the animals' right to work, risk of civil war
+		
+		ai_chance = {
+		    factor = 40
+			
+			modifier = {
+			    factor = 100
+				has_war_support > 30
+			}
+			modifier = {
+			    factor = 80
+				animalist < 50
+			}
+			modifier = {
+			    factor = 0
+				has_stability > 50
+			}
+		}
+		
+		add_stability = 0.1
+		add_war_support = -0.1
+		add_political_power = -100
+		
+		custom_effect_tooltip = emu_generic.2.tt
+	}
+}
+
+### Generic News Events ###
+
+news_event = {
+    id = emu_genericnews.1
+	title = emu_genericnews.1.t
+	desc = emu_genericnews.1.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    any_country = {
+		    has_completed_focus = proclaim_animalist_empire
+		}
+		NOT = { has_global_flag = animalist_empire }
+	}
+	
+	immediate = {
+	    set_global_flag = animalist_empire	
+		hidden_effect = {
+		    ROOT = {
+		        add_named_threat = {
+		            threat = 5.0
+			        name = animalist_empire_threat
+		        }
+	        }
+		}
+	} 
+	
+	option = {
+	    name = emu_genericnews.1.a
+		
+		trigger = {
+		    NOT = {
+			    has_government = animalist
+				has_completed_focus = proclaim_animalist_empire
+				original_tag = EMU
+			}
+		}
+	}
+	
+	option = {
+	    name = emu_genericnews.1.b
+		
+		trigger = {
+		    FROM = {
+			    has_completed_focus = proclaim_animalist_empire
+			}
+		}
+	}
+	
+	option = {
+	    name = emu_genericnews.1.c
+		
+		trigger = {
+		    NOT = {
+			    any_other_country = {
+			        has_government = animalist
+				}	
+			}
+		    original_tag = EMU
+		}
+	}
+	
+	option = {
+	    name = emu_genericnews.1.e
+		
+		trigger = {
+		    has_government = animalist
+		    NOT = {
+			    has_completed_focus = proclaim_animalist_empire
+				original_tag = EMU
+			}
+		}
+	}
+}

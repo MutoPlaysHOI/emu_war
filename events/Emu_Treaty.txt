@@ -1,0 +1,171 @@
+﻿add_namespace = emu_treaty
+add_namespace = eng_treaty
+add_namespace = ast_treaty
+
+country_event = {
+    id = eng_treaty.1 # emus renounce treaty
+	title = eng_treaty.1.t
+	desc = eng_treaty.1.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = treaty_renounced
+	}	
+	
+	trigger = {
+	    tag = ENG
+	    country_exists = EMU
+		country_exists = ENG
+		country_exists = AST
+		NOT = {
+		    has_idea = treaty_of_uluru
+			has_country_flag = treaty_renounced
+		}
+	}
+	
+	option = {
+	    name = eng_treaty.1.a # threaten the emus
+		
+		ai_chance = {
+		    factor = 120
+		}
+		
+		EMU = {
+		    country_event = {
+			    id = emu_treaty.1
+				hours = 6
+			}
+		}
+	}
+	
+	option = {
+	    name = eng_treaty.1.b # inform australia
+		
+		ai_chance = {
+		    factor = 40
+		}
+	}
+	
+	option = {
+	    name = eng_treaty.1.c # do nothing
+		
+		ai_chance = {
+		    factor = 4
+		}
+		
+		add_stability = -0.1
+		add_political_power = -100
+	}
+	
+}
+
+country_event = {
+    id = emu_treaty.1 # britain threatens emus
+	title = emu_treaty.1.t
+	desc = emu_treaty.1.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = britain_threatened_us
+	}
+	
+	trigger = {
+	    tag = EMU
+	    country_exists = EMU
+		country_exists = ENG
+		country_exists = AST
+		ENG = {
+		    has_country_flag = treaty_renounced
+		}
+		NOT = {
+		    has_idea = treaty_of_uluru
+			has_country_flag = britain_threatened_us
+		}
+	}
+	
+	option = {
+	    name = emu_treaty.1.a # reject demands - keep treaty renounced
+		
+		ai_chance = {
+		    factor = 40
+			
+			modifier = {
+			    factor = 80
+				
+				ENG = {
+				    num_divisions < 50
+				}
+			}
+			modifier = {
+			    factor = 80
+				
+				ENG = {
+				    has_army_manpower < 500000
+			    }
+			}
+			modifier = {
+			    factor = 800
+				
+				ENG = {
+				    has_defensive_war = yes
+					surrender_progress > 0.25
+				}
+			}
+		}
+		
+		EMU = {
+		    add_political_power = 100
+            add_stability = 0.1
+            add_war_support = 0.1
+		}
+		
+		ENG = {
+		    country_event = {
+			    id = emu.1
+				hours = 6
+			}
+		}
+	}
+	
+	option = {
+	    name = emu_treaty.1.b # accept demands and keep treaty in effect
+		
+		ai_chance = {
+		    factor = 120
+			
+			modifier = {
+			    factor = 400
+				
+				ENG = {
+				    num_divisions > 100
+				}
+			}
+			modifier = {
+			    factor = 800
+				
+				ENG = {
+				    num_divisions > 200
+				}
+			}
+			modifier = {
+			    factor = 350
+				
+			    has_stability < 0.5
+			}			
+		}
+		
+        EMU = {
+		    add_ideas = treaty_of_uluru
+            add_political_power = -100
+            add_stability = -0.1
+            add_war_support = -0.1
+			hidden_effect = {
+			    add_ideas = free_trade_emu
+			}
+		}
+	}
+}

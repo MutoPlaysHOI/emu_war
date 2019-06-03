@@ -1,0 +1,781 @@
+﻿add_namespace = emu
+
+country_event = {
+    id = emu.1
+	title = emu.1.t
+	desc = emu.1.d
+	picture = GFX_report_event_ast_navy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = EME
+	}	
+	
+	option = {
+	    name = emu.1.a # accept
+		
+		ai_chance = {
+		    factor = 75
+			modifier = {
+			    factor = 2
+				has_opinion = {
+				    target = EMU
+					value < 10
+				}
+			}
+			modifier = {
+			    factor = 0
+				has_war = no
+			}
+			modifier = {
+			    factor = 0
+				EMU = {
+					OR = {
+				        has_defensive_war = yes					
+				        surrender_progress > 0.25
+					}	
+				}	
+			}
+			modifier = {
+			    factor = 0
+				EMU = {
+				    has_capitulated = yes
+				}
+			}
+			modifier = {
+			    factor = 0
+				is_in_faction = yes
+			}
+		}
+		
+		    EMU = {
+				country_event = { id = emu.3 hours = 6 }
+			}
+		  
+		
+		
+		hidden_effect = {
+		
+		}
+	
+	}
+	option = {
+		name = emu.1.b # refuse
+		
+		ai_chance = {
+			factor = 25
+		}
+		
+		EMU = {
+			country_event = { id = emu.2 hours = 6 }
+		}
+	}
+  }
+  
+country_event = {
+    id = emu.2
+	title = emu.2.t
+	desc = emu.2.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = EMU
+	}	
+	
+	option = {
+	    name = emu.2.a
+	}
+ } 
+
+country_event = {
+    id = emu.3
+	title = emu.3.t
+	desc = emu.3.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = EMU
+	}	
+	
+	option = {
+	    name = emu.3.a
+		
+		ai_chance = {
+		    factor = 4000
+		}	
+			
+			    EMU = {
+				    create_faction = animalian_defence_pact
+			        add_to_faction = EME
+		        }
+		    
+		
+	}
+ }
+
+country_event = {
+    id = emu.4 # Rebellions escalate into war
+	title = emu.4.t
+	desc = emu.4.d
+	picture = GFX_report_event_ast_navy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = AST
+	}
+	
+	option = {
+	    name = emu.4.a # stay as australia
+		add_stability = -0.1
+        hidden_effect = {
+		    every_owned_state = {
+			    limit = {
+				    is_core_of = AST
+				}
+			    EME = { add_state_claim = PREV }
+			}
+			EME = {
+			    add_state_core = 517
+				add_state_core = 518
+			}
+		}		
+		
+		ai_chance = {
+		    factor = 4000
+		}
+		
+		EME = {
+		    transfer_state = 517
+			transfer_state = 518
+			declare_war_on = { target = AST type = civil_war_emu }
+		
+		    hidden_effect = {
+		        load_oob = EME_civilwar
+				set_autonomy = {
+				    target = AST
+				    autonomy_state = autonomy_free
+			    }
+				add_war_support = 0.1
+				news_event = { id = emu.5 hours = 6 }
+				AST = {
+				    leave_faction = allies
+				}
+		    }
+	    }
+		
+		AST = {
+		    hidden_effect = {
+			    add_war_support = -0.2
+			}
+		}
+	}
+	
+	option = {
+	    name = emu.4.b # change to emu rebellion
+		trigger = {
+		    is_ai = no
+		}
+        add_stability = -0.1
+        hidden_effect = {
+		    AST = {
+			    create_wargoal = {
+	                type = civil_war_emu
+	                target = EME
+                }  
+			}
+            EME = {
+			    create_wargoal = {
+	                type = civil_war_emu
+	                target = AST
+                }  
+			}			
+		    every_owned_state = {
+			    limit = {
+				    is_core_of = AST
+				}
+			    EME = { add_state_claim = PREV }
+			}
+			EME = {
+			    add_state_core = 517
+				add_state_core = 518
+			}
+		}		
+		
+		
+		EME = {
+		    transfer_state = 517
+			transfer_state = 518
+			declare_war_on = {
+			    target = AST
+				type = civil_war_emu
+			}			
+		
+		    hidden_effect = {
+			    AST = {
+			        create_wargoal = {
+	                    type = civil_war_emu
+	                    target = EME
+                    }  
+			    }
+            EME = {
+			    create_wargoal = {
+	                type = civil_war_emu
+	                target = AST
+                }  
+			}
+		        load_oob = EME_civilwar
+			    set_autonomy = {
+				    target = AST
+				    autonomy_state = autonomy_free
+			    }				
+				news_event = { hours = 6 id = emu.5  }
+				AST = {
+				    leave_faction = allies
+				}
+		    }		
+		    change_tag_from = AST
+	    }
+		
+		AST = {
+		    hidden_effect = {
+			    add_war_support = -0.2
+			}
+		}
+	}
+} 
+
+news_event = {
+    id = emu.5 # Australian Civil War
+	title = emu.5.t
+	desc = emu.5.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    country_exists = EME
+		EME = { has_war_with = AST }
+		NOT = { has_global_flag = ast_civil_war }
+	}
+	
+	immediate = {
+	    set_global_flag = ast_civil_war
+	}
+	
+	option = {
+	    name = emu.5.a
+		
+		trigger = {
+		    TAG = EMU
+		}
+	}
+	
+	option = {
+	    name = emu.5.b
+		
+		trigger = {
+		    NOT = {
+			   TAG = EMU
+			   TAG = AST
+			   TAG = EME
+			}
+		}
+	}
+	
+	option = {
+	    name = emu.5.c
+		
+		trigger = {
+		    TAG = AST
+		}
+	}
+	
+	option = {
+	    name = emu.5.e
+		
+		trigger = { TAG = EME }
+	}
+}	
+	
+news_event = {
+    id = emu.6 # Emus announce victory
+	title = emu.6.t
+	desc = emu.6.d
+	picture = GFX_news_event_002
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    country_exists = EMU
+		country_exists = AST
+	}
+	
+	option = {
+	    name = emu.6.a
+		
+		trigger = {
+		    NOT = {
+			    TAG = EMU
+				TAG = AST
+			}
+		}
+	}
+	
+	option = {
+	    name = emu.6.b
+		
+		trigger = {
+		    TAG = EMU
+		}
+	}
+	
+	option = {
+	    name = emu.6.c
+		
+		trigger = {
+		    TAG = AST
+		}
+	}
+}
+
+country_event = {
+    id = emu.7 # UK offers help
+	title = emu.7.t
+	desc = emu.7.d
+	picture = GFX_report_event_FDR_speech
+	
+	is_triggered_only = no
+	
+	mean_time_to_happen = {
+		days = 14
+	}
+	
+	immediate = {
+	    set_global_flag = uk_offers_help
+	}
+	
+	trigger = {
+	    tag = AST
+	    AST = {
+		    has_war_with = EME
+		}
+		country_exists = AST
+		country_exists = EME
+		country_exists = ENG
+		NOT = { 
+		    has_global_flag = uk_offers_help
+            ENG = {
+			    has_war_with = EME
+			}			
+		}
+	}
+	
+	option = {
+	    name = emu.7.a # accept
+		
+		ai_chance = {
+		    factor = 75			
+			modifier = {
+			    factor = 4000
+				surrender_progress > 0.5
+			}
+			modifier = {
+			    factor = 0
+				NOT = {
+				    country_exists = EME
+				}
+			}
+            modifier = {
+			    factor = 1
+				has_opinion = {
+				    target = ENG
+					value < 20
+				}
+			}
+            modifier = {
+			    factor = 0
+				EME = {
+				    surrender_progress > 0.5
+				}
+			}
+            modifier = {
+			    factor = 0
+				is_in_faction = yes
+			}
+            modifier = {
+			    factor = 100
+				285 = { is_controlled_by = EME }
+			}			
+		}
+		
+		ENG = {
+		    country_event = { id = emu.8 hours = 6 }
+			declare_war_on = {
+			    target = EME
+				type = annex_everything
+			}
+		}
+		
+		AST = {
+		    custom_effect_tooltip = emu.7.a.tt
+		}
+	}
+	
+	option = {
+	    name = emu.7.b # refuse
+		
+		ai_chance = {
+		    factor = 25
+		}
+		
+		ENG = {
+		    country_event = { id = emu.9 hours = 6 }
+		}
+	}
+	
+}
+
+country_event = {
+    id = emu.8 # australia accepts 
+    title = emu.8.t	
+	desc = emu.8.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = ENG
+		country_exists = ENG
+		country_exists = AST
+		country_exists = EME
+	}
+	
+	option = {
+	    name = emu.8.a
+		
+		hidden_effect = {
+		    AST = {
+			    join_faction = allies
+			}
+		}
+	}
+}
+
+country_event = {
+    id = emu.9 # australia refuses
+	title = emu.9.t
+	desc = emu.9.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = ENG
+		country_exists = ENG
+		country_exists = AST
+		country_exists = EME
+	}
+	
+	option = {
+	    name = emu.9.a
+	}
+}
+
+news_event = {
+    id = emu.10 # fall of uluru
+	title = emu.10.t
+	desc = emu.10.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	trigger = {
+	    674 = { is_controlled_by = AST }
+		674 = { is_owned_by = EMU }
+		EMU = { has_war_with = AST }
+		EMU = { has_capitulated = no }
+		EMU = { exists = yes }
+		NOT = { has_global_flag = fall_of_uluru_emu }
+	}
+	
+	immediate = {
+	    set_global_flag = fall_of_uluru_emu
+	}
+	
+	mean_time_to_happen = {
+	    days = 2
+	}
+	
+	option = {
+	    name = emu.10.a
+		trigger = {
+		    TAG = EMU
+		}
+	}
+	
+	option = {
+	    name = emu.10.b
+		trigger = {
+		    TAG = AST
+		}
+	}
+	
+	option = {
+	    name = emu.10.c
+		trigger = {
+		    NOT = {
+			    TAG = EMU
+				TAG = AST
+			}
+		}
+	}
+}
+
+news_event = {
+    id = emu.11 # liberation of uluru
+	title = emu.11.t
+	desc = emu.11.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	trigger = {
+	    674 = { is_controlled_by = EMU }
+		674 = { is_owned_by = EMU }
+		EMU = { has_war_with = AST }
+		EMU = { has_capitulated = no }
+		EMU = { exists = yes }
+		has_global_flag = fall_of_uluru_emu
+		NOT = { has_global_flag = liberation_of_uluru_emu }
+	}
+	
+	immediate = {
+	    set_global_flag = liberation_of_uluru_emu
+	}
+	
+	mean_time_to_happen = {
+	    days = 2
+	}
+	
+	option = {
+	    name = emu.11.a
+		trigger = {
+		    TAG = EMU
+		}
+	}
+	
+	option = {
+	    name = emu.11.b
+		trigger = {
+		    TAG = AST
+		}
+	}
+	
+	option = {
+	    name = emu.11.c
+		trigger = {
+		    NOT = {
+			    TAG = EMU
+				TAG = AST
+			}
+		}
+	}
+}
+
+country_event = {
+    id = emu.12 # People want King Emu removed from military
+	title = emu.12.t
+	desc = emu.12.d
+	picture = GFX_report_event_emu_civil_war
+	
+	is_triggered_only = no
+	
+	immediate = {
+	    set_country_flag = people_want_king_emu_removed
+	}
+	
+	mean_time_to_happen = {
+	    days = 2
+	}
+	
+	trigger = {
+	    tag = EMU
+		NOT = {
+		    has_government = animalist
+			has_country_flag = people_want_king_emu_removed
+		}
+	}
+	
+	option = {
+	    name = emu.12.a # King Emu will be removed from military
+		
+		ai_chance = {
+		    factor = 80
+		}
+		
+		EMU = {		    
+		    custom_effect_tooltip = emu.12.tt
+			add_stability = -0.15
+			
+			hidden_effect = {
+			    remove_unit_leader = 8802
+				set_country_flag = king_emu_removed
+			}
+		}
+	}
+	
+	option = {
+	    name = emu.12.b # King Emu stays in the military
+		
+		ai_chance = {
+		    factor = 20
+		}
+		
+		EMU = {
+		    custom_effect_tooltip = emu.12.b.tt
+		    custom_effect_tooltip = emu.12.war
+			
+			hidden_effect = {
+			    add_war_support = -0.2
+				set_country_flag = king_emu_stays
+			}
+		}
+	}
+}
+
+country_event = {
+    id = emu.13 # uk demands peace
+	title = emu.13.t
+	desc = emu.13.d
+	picture = GFX_report_event_emu_civil_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = treaty_violated
+	}
+	
+	trigger = {
+	    tag = EMU
+		EMU = {
+		    has_offensive_war_with = AST
+			has_idea = treaty_of_uluru
+		}
+		AST = {
+		    has_defensive_war_with = EMU
+		}
+		country_exists = EMU
+		country_exists = AST
+		country_exists = ENG
+		NOT = {
+		    has_country_flag = treaty_violated
+		}
+	}
+	
+	option = {
+	    name = emu.13.a # accept terms and white peace australia
+		
+		ai_chance = {
+		    factor = 50
+		}
+		
+		EMU = {
+		    add_political_power = -100
+			add_war_support = -0.1
+			
+			hidden_effect = {
+			    EMU = {
+                    white_peace = AST
+					if = {
+					    EMU = {
+						    has_war_with = ENG
+						}
+						white_peace = ENG
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+	    name = emu.13.b # refuse terms and continue war
+		
+		ai_chance = {
+		    factor = 50
+		}
+		
+		EMU = {
+		    custom_effect_tooltip = emu.13.tt
+		    add_political_power = 100
+			add_war_support = 0.1
+			
+			hidden_effect = {
+			    ENG = {
+				    country_event = {
+					    id = emu.14
+						hours = 6
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+    id = emu.14 # uk finds out that the emus violated the treaty
+	title = emu.14.t
+	desc = emu.14.d
+	picture = GFX_report_event_emu_civil_war
+	
+	is_triggered_only = no
+	
+	immediate = {
+	    set_country_flag = treaty_violated_eng
+	}
+	
+	trigger = {
+	    tag = ENG
+		EMU = {
+		    has_offensive_war_with = AST
+			has_idea = treaty_of_uluru
+		}
+		AST = {
+		    has_defensive_war_with = EMU
+		}
+		country_exists = EMU
+		country_exists = AST
+		country_exists = ENG
+		NOT = {
+		    has_country_flag = treaty_violated_eng
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = emu.14.a # demand peace
+		
+		ai_chance = {
+		    factor = 100
+		}
+		
+		EMU = {
+		    country_event = {
+			    id = emu.13
+				hours = 6
+			}
+		}
+	}
+}		
