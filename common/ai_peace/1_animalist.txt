@@ -1,0 +1,285 @@
+# Logic for Animalist AI on how to deal in peace conferences
+# Should favor puppeting non-animalist countries and liberating animalist countries
+# Written by King Emu I
+
+animalist_peace = {
+    enable = {
+	    has_government = animalist
+	}
+	
+	annex_randomness = 0 #400
+	liberate_randomness = 0 #50
+	puppet_randomness = 0 #950
+	take_states_randomness = 0 #250
+	force_government_randomness = 0 #50
+	
+	# ROOT = Taker, FROM = Giver
+	annex = {
+	    factor = 200 #700
+		
+		#modifier = { #
+		#	factor = 0
+		#	FROM = {
+		#		any_owned_state = { 
+		#			NOT = {
+		#				OR = { 
+		#					is_claimed_by = ROOT
+		#					is_core_of = ROOT
+		#					has_claimed_state_in_peace_conference = ROOT
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		
+		modifier = {
+			factor = 0
+			is_puppet = yes
+			FROM = {
+				any_owned_state = { 
+					NOT = {
+						OR = { 
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+							#has_claimed_state_in_peace_conference = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	liberate = {
+	    factor = 0 #40
+		
+		modifier = {
+		    factor = 400
+			
+			FROM = {
+			    has_government = animalist
+			}
+		}
+		
+		modifier = {
+			factor = 0 #0.5 - only liberate animalists!
+			NOT = {
+				FROM = {
+					has_government = animalist
+				}
+			}
+		}
+	}
+	
+	puppet = {
+	    factor = 800 #1600
+		
+		modifier = {
+		    factor = 4000 # Australia is evil!!11!1111 (Emus only)
+			
+			tag = EMU
+			FROM = { tag = AST }
+		}
+		
+		modifier = {
+		    factor = 0 # Don't puppet your own ideology!
+			
+			FROM = {
+			    has_government = animalist
+			}
+		}
+	}
+	
+	take_states = {
+	    factor = 200 #800
+		
+		modifier = {
+		    factor = 0 # Emus prefer not to take anything outside Australia
+			
+			tag = EMU
+			NOT = {
+				FROM = {
+					OR = {
+						is_claimed_by = ROOT
+						is_core_of = ROOT
+					}
+				}
+			}
+			NOT = {
+				FROM = {
+					is_on_continent = australia
+				}			
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			is_subject = no # Puppets should clean up the crap mother country doesn't want
+			any_country = {
+				is_puppet_of = ROOT
+				FROM = {
+					state_and_terrain_strategic_value < 8
+					OR = {
+						num_owned_neighbour_states = {
+							count > 0
+							owner = PREV
+						}
+						num_claimed_peace_conference_neighbour_states = {
+							count > 0
+							owner = PREV
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 20
+
+			FROM = {
+				OR = {
+					is_claimed_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+
+			capital_scope = {
+				distance_to = {
+					target = FROM
+					value < 100
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+
+			capital_scope = {
+				distance_to = {
+					target = FROM
+					value < 200
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+
+			capital_scope = {
+				distance_to = {
+					target = FROM
+					value < 300
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+
+			capital_scope = {
+				distance_to = {
+					target = FROM
+					value < 400
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						count > 1
+						owner = ROOT
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 1
+						owner = ROOT
+					}
+					#any_neighbor_state = {
+					#	AND = {
+					#		controller = {
+					#			tag = ROOT
+					#		}
+					#		owner = {
+					#			is_in_peace_conference = no
+					#			has_capitulated = yes
+					#		}
+					#	}					
+					#}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						count > 2
+						owner = ROOT
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 2
+						owner = ROOT
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						count > 3
+						owner = ROOT
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 3
+						owner = ROOT
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						count > 4
+						owner = ROOT
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 4
+						owner = ROOT
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						count > 5
+						owner = ROOT
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 5
+						owner = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	force_government = {
+	    factor = 0
+	}
+}
