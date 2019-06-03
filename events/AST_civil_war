@@ -1,0 +1,125 @@
+add_namespace = eme_civilwar
+add_namespace = emu_civilwar
+
+country_event = {
+    id = eme_civilwar.1 # emus demand subjugation
+	title = eme_civilwar.1.t
+	desc = eme_civilwar.1.d
+	picture = GFX_report_event_emu_civil_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = emu_demands_subjugation
+	}
+	
+	trigger = {
+	    tag = EME
+		country_exists = AST
+		country_exists = EMU
+		country_exists = EME
+		NOT = {
+		    has_country_flag = emu_demands_subjugation
+		}
+		EME = {
+		    has_war_with = AST
+		}
+	}
+	
+	option = {
+	    name = eme_civilwar.1.a # accept subjugation
+		
+		ai_chance = {
+		    factor = 75
+			
+			modifier = {
+			    factor = 0
+				
+				EMU = {
+				    has_war = yes
+					OR = {
+					    surrender_progress > 0.5
+						has_army_manpower = {
+						    size < 300000
+						}
+					}
+				}
+			}
+			modifier = {
+			    factor = 150
+				
+				EMU = {
+				    has_army_manpower = {
+					    size > 850000
+					}
+				}
+			}
+		}
+		
+		EMU = {
+		    puppet = EME
+		}
+	}
+	
+	option = {
+	    name = eme_civilwar.1.b # refuse subjugation
+		
+		ai_chance = {
+		    factor = 25
+		}
+		
+		
+	}
+}
+
+country_event = {
+    id = eme_civilwar.2 # Canberra is captured
+	title = eme_civilwar.2.t
+	desc = eme_civilwar.2.d
+	picture = GFX_report_event_emu_civil_war
+	
+	immediate = {
+	    set_country_flag = fall_of_canberra_eme
+	}
+	
+	trigger = {
+	    tag = EME
+		285 = { is_controlled_by = EME }
+		285 = { is_owned_by = AST }
+		EME = { has_war_with = AST }
+		NOT = { has_country_flag = fall_of_canberra_eme }
+	}
+	
+	mean_time_to_happen = {
+	    days = 2
+	}
+	
+	option = {
+	    name = eme_civilwar.2.a # set canberra as capital
+		
+		ai_chance = {
+		    factor = 500
+		}
+		
+		set_capital = 285
+		add_war_support = 0.1
+		news_event = {
+		    id = emu.10
+			hours = 6
+		}
+	}
+	
+	option = {
+	    name = eme_civilwar.2.b # keep melbourne as capital
+		
+		ai_chance = {
+		    factor = 20
+		}
+		
+		add_stability = 0.1
+		news_event = {
+		    id = emu.10
+			hours = 6
+		}
+	}
+}
