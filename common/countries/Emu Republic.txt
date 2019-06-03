@@ -1,0 +1,4 @@
+graphical_culture = commonwealth_gfx
+graphical_culture_2d = emu_2d
+
+color = rgb { 148  102  78 }
