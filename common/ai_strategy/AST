@@ -1,0 +1,49 @@
+AST_declare_war_on_emu = { # To trigger the 2nd Emu War
+    enable = {
+	    tag = AST
+		NOT = {
+		    has_government = animalist
+		}		
+		has_wargoal_against = EMU
+		EMU = {
+		    has_government = animalist
+		}
+
+	}
+	abort = {
+	    OR = {
+			is_in_faction_with = EMU
+			EMU = {
+			    has_offensive_war_with = AST
+			}
+		}
+	}
+	
+	ai_strategy = {
+	    type = declare_war
+		id = "EMU"
+		value = 4000
+	}
+	
+	ai_strategy = { # to trick australia into declaring war
+	    type = consider_weak
+		id = "EMU"
+		value = 4000
+	}
+}
+
+AST_superior_race = { # Racism.
+    enable = {
+	    tag = AST
+		has_government = democratic
+	}
+	abort = {
+	    has_government = animalist # animals gotta not be mean to other animals
+	}
+	
+	ai_strategy = {
+	    type = consider_weak
+		id = "EMU"
+		value = 3999
+	}
+}
