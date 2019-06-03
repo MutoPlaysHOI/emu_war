@@ -1,0 +1,42 @@
+leader_traits = {
+    
+	emu_war_hero = {
+		war_support_factor = 0.1
+		stability_factor = 0.1
+		army_core_attack_factor = 0.1
+		army_core_defence_factor = 0.1
+	}
+	
+	### IDEA TRAITS ###
+	
+	emu_plane_upgrader = {
+	    random = no
+		equipment_bonus = {
+		    fighter_equipment = {
+			    reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+			heavy_fighter_equipment = {
+			    reliability = 0.3 air_agility = 0.25 maximum_speed = 0.25
+			}
+			CAS_equipment = {
+			    reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+			tac_bomber_equipment = {
+			    reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+			strat_bomber_equipment = {
+			    reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+			nav_bomber_equipment = {
+			    air_range = 0.1 naval_strike_attack = 0.1 reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+			cv_nav_bomber_equipment = {
+			    air_range = 0.1 naval_strike_attack = 0.1 reliability = 0.2 air_agility = 0.25 maximum_speed = 0.25
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+	}	
+}
