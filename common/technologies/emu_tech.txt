@@ -1,0 +1,157 @@
+@1936 = 0
+
+technologies = {
+
+    agile_emus = {
+	
+	    army_speed_factor = 0.15
+		
+		path = {
+		    leads_to_tech = agile_emus_2
+			research_cost_coeff = 1
+		}
+		
+		path = {
+		    leads_to_tech = durable_emus
+			research_cost_coeff = 1
+		}
+		
+		path = {
+		    leads_to_tech = improved_intelligence
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		doctrine = yes
+		folder = {
+		    name = emu_folder
+			position = { x = -2 y = 1 }
+		}
+		
+		categories = {
+		    emu_ability_tech
+		}
+		
+	}
+	
+	agile_emus_2 = {
+	    army_speed_factor = 0.2
+		
+		infantry = {
+		    breakthrough = 0.1
+		}
+		
+		research_cost = 2.25
+		doctrine = yes
+		folder = {
+		    name = emu_folder
+			position = { x = 2 y = -1 }
+		}
+		
+		ai_will_do = {
+		    factor = 2000
+			
+			modifier = {
+			    factor = 40
+				
+				date > 1940.1.1
+			}
+		}
+		
+		categories = {
+		    emu_ability_tech
+		}	
+	}
+	
+	durable_emus = {
+	    army_defence_factor = 0.15
+		attrition = -0.2
+		
+		research_cost = 3
+		doctrine = yes
+		folder = {
+		    name = emu_folder
+			position = { x = 2 y = 3 }
+		}
+		
+		ai_will_do = {
+		    factor = 2000
+			
+			modifier = {
+			    factor = 40
+				
+				date > 1940.1.1
+			}
+		}
+		
+		categories = {
+		    emu_ability_tech
+			emu_defence_tech
+		}
+	}
+	
+	### Misc Tech ###
+	
+	improved_intelligence = {
+		training_time_factor = -0.15
+		planning_speed = 0.05
+		max_planning = 0.02
+		
+		path = {
+		    leads_to_tech = improved_intelligence_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4
+		doctrine = yes
+		folder = {
+		    name = emu_folder
+			position = { x = 2 y = 1 }
+		}
+		
+		ai_will_do = {
+		    factor = 2000
+			
+			modifier = {
+			    factor = 40
+				
+				date > 1940.1.1
+			}
+		}
+		
+		categories = {
+		    emu_ability_tech
+			emu_misc_tech
+		}
+	}
+	
+	improved_intelligence_2 = {
+	    research_speed_factor = 0.05
+		training_time_factor = -0.05
+		planning_speed = 0.05
+		max_planning = 0.02
+		
+		research_cost = 5
+		doctrine = yes
+		folder = {
+		    name = emu_folder
+			position = { x = 6 y = 1 }
+		}
+		
+		ai_will_do = {
+		    factor = 2000
+			
+			modifier = {
+			    factor = 40
+				
+				date > 1940.1.1
+			}
+		}
+		
+		categories = {
+		    emu_ability_tech
+			emu_misc_tech
+		}
+	}
+	
+}
