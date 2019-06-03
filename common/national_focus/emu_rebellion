@@ -1,0 +1,968 @@
+focus_tree = {
+	id = Emu_Rebellion_Tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = EME
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1300 }
+	default = no
+	
+	focus = {
+		id = eme_defensive
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		mutually_exclusive = {
+			focus = eme_offensive
+		}
+		available = {
+		    AST = {
+			    has_war_with = EME
+			}
+		}
+		x = 8
+		y = 0
+
+	}
+	focus = {
+		id = eme_warplans
+		icon = GFX_goal_generic_position_armies
+		cost = 5
+		available = {
+		    EME = { has_war_with = AST }
+		}
+		x = 1
+		y = 0
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_ideas = {
+			    eme_war_plans_focus
+			}
+		}
+
+	}
+	focus = {
+		id = eme_offensive
+		icon = GFX_focus_attack_australia
+		cost = 10.00
+		mutually_exclusive = {
+			focus = eme_defensive
+		}
+		available = {
+		    AST = {
+			    has_war_with = EME
+			}
+		}
+		x = 12
+		y = 0
+
+	}
+	focus = {
+		id = eme_buildnavy
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		x = 20
+		y = 0
+
+	}
+	focus = {
+		id = eme_airfocus
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		x = 29
+		y = 0
+
+	}
+	focus = {
+		id = eme_industry
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10.00
+		x = 36
+		y = 0
+
+	}
+	focus = {
+		id = eme_industrialeffort
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_warplans
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		x = 1
+		y = 1
+		available_if_capitulated = yes
+		completion_reward = {
+		    random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = australia
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+							is_on_continent = australia
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+
+	}
+	focus = {
+		id = eme_armamenteffort
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_industrialeffort
+		}
+		x = 1
+		y = 2
+		available_if_capitulated = yes
+		completion_reward = {
+		    random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = australia
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = arms_factory
+								size > 1
+								include_locked = yes
+							}
+							is_on_continent = australia
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+
+	}
+	focus = {
+		id = eme_fortifyvictoria
+		icon = GFX_focus_defend_victoria
+		cost = 10.00
+		prerequisite = {
+			focus = eme_armamenteffort
+		}
+		x = 1
+		y = 4
+		available_if_capitulated = yes
+		completion_reward = {
+		    517 = {
+			    custom_effect_tooltip = EME_fortifyhomeland
+			    hidden_effect = {
+				    add_building_construction = {
+					type = bunker
+					level = 2
+					province = 12918
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 2130
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 2155
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 7755
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 10581
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 10622
+					instant_build = yes
+				}
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = eme_researchslot
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = eme_armamenteffort
+		}
+		x = 2
+		y = 3
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_research_slot = 1
+		}
+
+	}
+	focus = {
+		id = eme_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = eme_researchslot
+		}
+		x = 2
+		y = 5
+		available_if_capitulated = yes
+		completion_reward = {
+		    517 = {
+			    if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = eme_prospectforresources
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = eme_infrastructure
+		}
+		available = {
+		    EME = {
+			    controls_state = 517
+			}
+		}
+		bypass = {
+		    517 = {
+			    has_state_flag = resources_prospected
+			}
+		}		
+		x = 2
+		y = 6
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_resource = {
+			    type = oil
+				amount = 4
+				state = 517
+			}
+			add_resource = {
+			    type = steel
+				amount = 4
+				state = 517
+			}
+			add_resource = {
+			    type = aluminium
+				amount = 4
+				state = 517
+			}
+			517 = {
+			    set_state_flag = resources_prospected
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = eme_prospectoil
+		icon = GFX_goal_generic_oil_refinery
+		cost = 10.00
+		prerequisite = {
+			focus = eme_prospectforresources
+		}
+		mutually_exclusive = {
+			focus = eme_prospectaluminium
+			focus = eme_prospectsteel
+		}
+		available = {
+		    EME = {
+			    controls_state = 517
+			}
+		}
+		bypass = {
+		    517 = {
+			    has_state_flag = oil_prospected
+			}
+		}
+		x = 0
+		y = 7
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_resource = {
+			    type = oil
+				amount = 8
+				state = 517
+			}	
+			517 = {
+			    set_state_flag = oil_prospected
+			}
+		}
+
+	}
+	focus = {
+		id = eme_prospectaluminium
+		icon = GFX_focus_generic_aluminum
+		cost = 10.00
+		prerequisite = {
+			focus = eme_prospectforresources
+		}
+		mutually_exclusive = {
+			focus = eme_prospectoil
+			focus = eme_prospectsteel
+		}
+		available = {
+		    EME = {
+			    controls_state = 517
+			}
+		}
+		bypass = {
+		    517 = {
+			    has_state_flag = aluminum_prospected
+			}
+		}
+		x = 2
+		y = 7
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_resource = {
+			    type = aluminium
+				amount = 8
+				state = 517
+			}	
+			517 = {
+			    set_state_flag = aluminum_prospected
+			}
+		}
+
+	}
+	focus = {
+		id = eme_emuoffensive
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		prerequisite = {
+			focus = eme_warplans
+		}
+		x = 3
+		y = 1
+
+	}
+	focus = {
+		id = eme_prospectsteel
+		icon = GFX_focus_generic_steel
+		cost = 10.00
+		prerequisite = {
+			focus = eme_prospectforresources
+		}
+		mutually_exclusive = {
+			focus = eme_prospectaluminium
+			focus = eme_prospectoil
+		}
+		available = {
+		    EME = {
+			    controls_state = 517
+			}
+		}
+		bypass = {
+		    517 = {
+			    has_state_flag = steel_prospected
+			}
+		}
+		x = 4
+		y = 7
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_resource = {
+			    type = steel
+				amount = 8
+				state = 517
+			}	
+			517 = {
+			    set_state_flag = steel_prospected
+			}
+		}
+		
+
+	}
+	focus = {
+		id = eme_operationkosciuszko
+		icon = GFX_goal_generic_fortify_city
+		cost = 10.00
+		prerequisite = {
+			focus = eme_defensive
+		}
+		x = 6
+		y = 1
+
+	}
+	focus = {
+		id = eme_laststand
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		prerequisite = {
+			focus = eme_operationkosciuszko
+		}
+		x = 6
+		y = 2
+
+	}
+	focus = {
+		id = eme_armydefences
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = eme_defensive
+		}
+		x = 8
+		y = 2
+
+	}
+	focus = {
+		id = eme_navypriority
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = eme_armydefences
+		}
+		x = 7
+		y = 3
+
+	}
+	focus = {
+		id = eme_requestforces
+		icon = GFX_focus_army
+		cost = 10.00
+		prerequisite = {
+			focus = eme_defensive
+			focus = eme_offensive
+		}
+		x = 10
+		y = 1
+
+	}
+	focus = {
+		id = eme_allyemus
+		icon = GFX_focus_superior_beings
+		cost = 10.00
+		prerequisite = {
+			focus = eme_requestforces
+		}
+		mutually_exclusive = {
+			focus = eme_betrayemus
+		}
+		x = 9
+		y = 3
+
+	}
+	focus = {
+		id = eme_becomeemupuppet
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = eme_allyemus
+		}
+		mutually_exclusive = {
+			focus = eme_formalliance
+		}
+		x = 6
+		y = 4
+
+	}
+	focus = {
+		id = eme_formalliance
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = eme_allyemus
+		}
+		mutually_exclusive = {
+			focus = eme_becomeemupuppet
+		}
+		x = 9
+		y = 4
+
+	}
+	focus = {
+		id = eme_betrayemus
+		icon = GFX_focus_betray_emus
+		cost = 10.00
+		prerequisite = {
+			focus = eme_requestforces
+		}
+		mutually_exclusive = {
+			focus = eme_allyemus
+		}
+		x = 11
+		y = 3
+
+	}
+	focus = {
+		id = eme_sidewithgermany
+		icon = GFX_focus_chi_mission_to_germany
+		cost = 10.00
+		prerequisite = {
+			focus = eme_betrayemus
+		}
+		mutually_exclusive = {
+			focus = eme_attackemus
+		}
+		x = 11
+		y = 4
+
+	}
+	focus = {
+		id = eme_armyeffort
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = eme_offensive
+		}
+		x = 12
+		y = 2
+
+	}
+	focus = {
+		id = eme_airpriority
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = eme_armyeffort
+		}
+		x = 13
+		y = 3
+
+	}
+	focus = {
+		id = eme_operationkangaroo
+		icon = GFX_goal_generic_more_territorial_claims
+		cost = 10.00
+		prerequisite = {
+			focus = eme_offensive
+		}
+		x = 14
+		y = 1
+
+	}
+	focus = {
+		id = eme_desperateattack
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = eme_operationkangaroo
+		}
+		x = 14
+		y = 2
+
+	}
+	focus = {
+		id = eme_attackemus
+		icon = GFX_focus_war_plan_brown
+		cost = 10.00
+		prerequisite = {
+			focus = eme_betrayemus
+		}
+		mutually_exclusive = {
+			focus = eme_sidewithgermany
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = eme_destroyers
+		icon = GFX_focus_generic_destroyer
+		cost = 10.00
+		prerequisite = {
+			focus = eme_buildnavy
+		}
+		x = 16
+		y = 1
+
+	}
+	focus = {
+		id = eme_cruisers
+		icon = GFX_focus_generic_cruiser2
+		cost = 10.00
+		prerequisite = {
+			focus = eme_buildnavy
+		}
+		x = 18
+		y = 1
+
+	}
+	focus = {
+		id = eme_amphibious
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 10.00
+		prerequisite = {
+			focus = eme_buildnavy
+		}
+		x = 20
+		y = 1
+
+	}
+	focus = {
+		id = eme_battleships
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 10.00
+		prerequisite = {
+			focus = eme_buildnavy
+		}
+		x = 22
+		y = 1
+
+	}
+	focus = {
+		id = emu_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10.00
+		prerequisite = {
+			focus = eme_buildnavy
+		}
+		x = 24
+		y = 1
+
+	}
+	focus = {
+		id = eme_carrier
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10.00
+		prerequisite = {
+			focus = eme_amphibious
+		}
+		prerequisite = {
+			focus = eme_cruisers
+		}
+		prerequisite = {
+			focus = eme_destroyers
+		}
+		prerequisite = {
+			focus = eme_battleships
+		}
+		prerequisite = {
+			focus = emu_submarines
+		}
+		x = 19
+		y = 2
+
+	}
+	focus = {
+		id = eme_navyact
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10.00
+		prerequisite = {
+			focus = emu_submarines
+		}
+		prerequisite = {
+			focus = eme_battleships
+		}
+		prerequisite = {
+			focus = eme_amphibious
+		}
+		prerequisite = {
+			focus = eme_cruisers
+		}
+		prerequisite = {
+			focus = eme_destroyers
+		}
+		x = 21
+		y = 2
+
+	}
+	focus = {
+		id = eme_fighter
+		icon = GFX_goal_generic_air_fighter
+		cost = 10.00
+		prerequisite = {
+			focus = eme_airfocus
+		}
+		x = 26
+		y = 1
+
+	}
+	focus = {
+		id = eme_bomber
+		icon = GFX_goal_generic_air_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = eme_airfocus
+		}
+		x = 28
+		y = 1
+
+	}
+	focus = {
+		id = eme_cas
+		icon = GFX_goal_generic_CAS
+		cost = 10.00
+		prerequisite = {
+			focus = eme_airfocus
+		}
+		x = 30
+		y = 1
+
+	}
+	focus = {
+		id = eme_navalair
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = eme_airfocus
+		}
+		x = 32
+		y = 1
+
+	}
+	focus = {
+		id = eme_airforceact
+		icon = GFX_goal_generic_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = eme_bomber
+		}
+		prerequisite = {
+			focus = eme_fighter
+		}
+		prerequisite = {
+			focus = eme_cas
+		}
+		prerequisite = {
+			focus = eme_navalair
+		}
+		x = 29
+		y = 2
+
+	}
+	focus = {
+		id = eme_civillian1
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_industry
+		}
+		x = 35
+		y = 1
+
+	}
+	focus = {
+		id = eme_civillian2
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_civillian1
+		}
+		x = 35
+		y = 2
+
+	}
+	focus = {
+		id = eme_civillian3
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_civillian2
+		}
+		x = 35
+		y = 3
+
+	}
+	focus = {
+		id = eme_infrastructurebonus
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = eme_civillian3
+		}
+		mutually_exclusive = {
+			focus = eme_extraresearch
+		}
+		x = 34
+		y = 4
+
+	}
+	focus = {
+		id = eme_military1
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_industry
+		}
+		x = 37
+		y = 1
+
+	}
+	focus = {
+		id = eme_military2
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_military1
+		}
+		x = 37
+		y = 2
+
+	}
+	focus = {
+		id = eme_military3
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = eme_military2
+		}
+		x = 37
+		y = 3
+
+	}
+	focus = {
+		id = eme_extraresearch
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = eme_civillian3
+		}
+		prerequisite = {
+			focus = eme_military3
+		}
+		mutually_exclusive = {
+			focus = eme_infrastructurebonus
+			focus = eme_equipment
+		}
+		x = 36
+		y = 4
+
+	}
+	focus = {
+		id = eme_infrastructure2
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = eme_prospectoil
+			focus = eme_prospectaluminium
+			focus = eme_prospectsteel
+		}
+		x = 2
+		y = 8
+		available_if_capitulated = yes
+		completion_reward = {
+		    517 = {
+			    if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = eme_equipment
+		icon = GFX_focus_generic_combined_arms
+		cost = 10.00
+		prerequisite = {
+			focus = eme_military3
+		}
+		mutually_exclusive = {
+			focus = eme_extraresearch
+		}
+		x = 38
+		y = 4
+
+	}
+}
