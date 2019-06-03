@@ -1,0 +1,664 @@
+# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+EMU_INF_01 = {
+    name = "Infantry Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "%d Infantry Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Infantry Emu" }
+		2 = { "%dnd Infantry Emu" }
+		3 = { "%drd Infantry Emu" }
+		4 = { "%dth Infantry Emu" }
+		5 = { "%dth Infantry Emu" }
+		6 = { "%dth Infantry Emu" }
+		7 = { "%dth Infantry Emu" }
+		8 = { "%dth Infantry Emu" }
+		9 = { "%dth Infantry Emu" }
+		10 = { "%dth Infantry Emu" }
+		11 = { "%dth Infantry Emu" }
+		12 = { "%dth Infantry Emu" }
+		13 = { "%dth Infantry Emu" }
+		32 = { "%dth Darwin Infantry Police" }
+		14 = { "%dth Infantry Emu" }
+		15 = { "%dth Infantry Emu" }
+		16 = { "%dth Redime Emu Division" }
+		17 = { "%dth Raawkann Clan Infantry Division" }
+		18 = { "%dth Infantry Emu" }
+		19 = { "%dth Infantry Emu" }
+		20 = { "%dth Infantry Emu" }
+		21 = { "%dst Infantry Emu" }
+		22 = { "%dnd Infantry Emu" }
+		23 = { "%drd Infantry Emu" }
+		24 = { "%dth Infantry Emu" }
+		25 = { "%dth Infantry Emu" }
+		26 = { "%dth Infantry Emu" }
+		27 = { "%dth Infantry Emu" }
+		28 = { "%dth Infantry Emu" }
+		29 = { "%dth Infantry Emu" }
+		30 = { "%dth Infantry Emu" }
+		88 = { "33rd King's Guard" }
+		31 = { "%dst Infantry Emu" }
+		32 = { "%dnd Infantry Emu" }
+		33 = { "%drd Skratch Clan Infantry Division" }
+		34 = { "%dth Infantry Emu" }
+		35 = { "%dth Infantry Emu" }
+		36 = { "%dth Infantry Emu" }
+		37 = { "%dth Infantry Emu" }
+		38 = { "%dth Infantry Emu" }
+		39 = { "%dth Infantry Emu" }
+		40 = { "%dth Infantry Emu" }
+		41 = { "%dst Infantry Emu" }
+		42 = { "%dnd Infantry Emu" }
+		43 = { "%drd Infantry Emu" }
+		44 = { "%dth Infantry Emu" }
+		45 = { "%dth Infantry Emu" }
+		46 = { "%dth Infantry Emu" }
+		47 = { "%dth Skaawn Clan Infantry Division" }
+		48 = { "%dth Infantry Emu" }
+		49 = { "%dth Infantry Emu" }
+		50 = { "%dth Infantry Emu" }
+		51 = { "%dst Infantry Emu" }
+		52 = { "%dnd Infantry Emu" }
+		53 = { "%drd Infantry Emu" }
+		72 = { "12th Royal King's Guard" }
+		104 = { "54th (Darwin) Infantry Emu" }
+		
+		# Emus first used guns during the 1st Emu War, when they took some from an Australian military base near their land. They managed to figure out its contents and began mass-producing it, producing hundreds of thousands of guns for soldiers on the battlefield
+	}
+}
+
+EMU_CAV_01 = 
+{
+	name = "Cavalry Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { EMU_Gar_01 }
+
+	fallback_name = "%d Mounted Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Mounted Emu" }
+		2 = { "%dnd Mounted Emu" }
+		3 = { "%drd Mounted Emu" }
+		4 = { "%dth Mounted Emu" }
+		5 = { "%dth Mounted Emu" }
+		6 = { "%dth Mounted Emu" }
+		7 = { "%dth Mounted Emu" }
+		8 = { "%dth Mounted Emu" }
+		9 = { "%dth Mounted Emu" }
+		10 = { "%dth Mounted Emu" }
+		11 = { "%dth Mounted Emu" }
+		12 = { "%dth Mounted Emu" }
+		13 = { "%dth Mounted Emu" }
+		14 = { "%dth Mounted Emu" }
+		15 = { "%dth Mounted Emu" }
+		16 = { "%dth Mounted Emu" }
+		17 = { "%dth Mounted Emu" }
+		18 = { "%dth Mounted Emu" }
+		19 = { "%dth Mounted Emu" }
+		20 = { "%dth Mounted Emu" }
+		21 = { "%dst Mounted Emu" }
+		22 = { "%dnd Mounted Emu" }
+		23 = { "%drd Mounted Emu" }
+		24 = { "%dth Mounted Emu" }
+		25 = { "%dth Mounted Emu" }
+		26 = { "%dth Mounted Emu" }
+		27 = { "%dth Mounted Emu" }
+		28 = { "%dth Mounted Emu" }
+		29 = { "%dth Mounted Emu" }
+		30 = { "%dth Mounted Emu" }
+		31 = { "%dst Mounted Emu" }
+		32 = { "%dnd Mounted Emu" }
+		33 = { "%drd Mounted Emu" }
+		34 = { "%dth Mounted Emu" }
+		35 = { "%dth Mounted Emu" }
+		36 = { "%dth Mounted Emu" }
+		37 = { "%dth Mounted Emu" }
+		38 = { "%dth Mounted Emu" }
+		39 = { "%dth Mounted Emu" }
+		40 = { "%dth Mounted Emu" }
+		41 = { "%dst Mounted Emu" }
+		42 = { "%dnd Mounted Emu" }
+		43 = { "%drd Mounted Emu" }
+		44 = { "%dth Mounted Emu" }
+		45 = { "%dth Mounted Emu" }
+		46 = { "%dth Mounted Emu" }
+		47 = { "%dth Mounted Emu" }
+		48 = { "%dth Mounted Emu" }
+		49 = { "%dth Mounted Emu" }
+		50 = { "%dth Mounted Emu" }
+		51 = { "%dst Mounted Emu" }
+		52 = { "%dnd Mounted Emu" }
+		53 = { "%drd Mounted Emu" }
+		
+		# Historically, Emus didn't ride horses and have never thought about it, but in case the player wants emus to ride horses this is the default name for cavalry emus
+	}
+}
+
+EMU_MOT_01 = 
+{
+	name = "Motorised Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_CAV_01 }
+
+	fallback_name = "%d Motor Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Motor Emu" } #Formed from 1st Mounted Emu
+		2 = { "%dnd Motor Emu" } #Formed from 2nd Mounted Emu
+		3 = { "%drd Motor Emu" }
+		4 = { "%dth Motor Emu" }
+		5 = { "%dth Motor Emu" }
+		6 = { "%dth Motor Emu" }
+		7 = { "%dth Motor Emu" }
+		8 = { "%dth Motor Emu" }
+		9 = { "%dth Motor Emu" }
+		10 = { "%dth Motor Emu" }
+		11 = { "%dth Motor Emu" }
+		12 = { "%dth Motor Emu" }
+		13 = { "%dth Motor Emu" }
+		14 = { "%dth Motor Emu" }
+		15 = { "%dth Motor Emu" }
+		16 = { "%dth Motor Emu" }
+		17 = { "%dth Motor Emu" }
+		18 = { "%dth Motor Emu" }
+		19 = { "%dth Motor Emu" }
+		20 = { "%dth Motor Emu" }
+		21 = { "%dst Motor Emu" }
+		22 = { "%dnd Motor Emu" }
+		23 = { "%drd Motor Emu" }
+		
+		# Emus started using motorized vehicles when they first invented it in 1933, and saw extensive use during the 2nd Emu War, with tens of thousands of motorized vehicles produced and deployed on the battlefield, providing support for the Infantry and the Emu Guards that got disbanded in 1945
+	}
+}
+
+EMU_ARM_01 = 
+{
+	name = "Armoured Divisions" # No, the Emus didn't start wearing super tough armour that can repel missiles
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_CAV_01 }
+
+	fallback_name = "%d Armoured Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Armoured Emu" }
+		2 = { "%dnd Armoured Emu" } #Formed from 2nd Motor Emu
+		3 = { "%drd Armoured Emu" } #Formed from 1st Motor Emu
+		4 = { "%dth Armoured Emu" }
+		5 = { "%dth Armoured Emu" }
+		6 = { "%dth Raawkann Clan Armoured Division" }
+		7 = { "%dth Armoured Emu" }
+		8 = { "%dth Armoured Emu" }
+		9 = { "%dth Armoured Emu" }
+		10 = { "%dth Armoured Emu" }
+		11 = { "%dth Armoured Emu" }
+		12 = { "%dth Armoured Emu" }
+		13 = { "%dth Armoured Emu" }
+		14 = { "%dth Armoured Emu" }
+		15 = { "%dth Armoured Emu" }
+		16 = { "%dth Armoured Emu" }
+		17 = { "%dth Armoured Emu" }
+		18 = { "%dth Gaawssk Clan Armoured Division" }
+		19 = { "%dth Armoured Emu" }
+		20 = { "%dth Aamuu Clan Armoured Division" }
+		21 = { "%dst Armoured Emu" }
+		22 = { "%dnd Armoured Emu" }
+		23 = { "%drd Armoured Emu" }
+		
+		# The first Emu tanks were invented on the 8th of December, 1932, designed to repel human invasions. It never saw extensive use during the war, and only 50 Emu War tanks were deployed
+	}
+}
+
+EMU_MEC_01 = 
+{
+	name = "Mechanised Divisions" # No, the Emus have NOT turned into super deadly robots with laser beams and super powerful missiles
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_CAV_01 }
+
+	fallback_name = "%d Mechanised Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Mechanised Emu" }
+		2 = { "%dnd Mechanised Emu" }
+		3 = { "%drd Mechanised Emu" }
+		4 = { "%dth Mechanised Emu" }
+		5 = { "%dth Mechanised Emu" }
+		6 = { "%dth Mechanised Emu" }
+		7 = { "%dth Mechanised Emu" }
+		8 = { "%dth Mechanised Emu" }
+		9 = { "%dth Mechanised Emu" }
+		10 = { "%dth Mechanised Emu" }
+		11 = { "%dth Mechanised Emu" }
+		12 = { "%dth Mechanised Emu" }
+		13 = { "%dth Mechanised Emu" }
+		14 = { "%dth Mechanised Emu" }
+		15 = { "%dth Mechanised Emu" }
+		16 = { "%dth Mechanised Emu" }
+		17 = { "%dth Mechanised Emu" }
+		18 = { "%dth Mechanised Emu" }
+		19 = { "%dth Mechanised Emu" }
+		20 = { "%dth Mechanised Emu" }
+		21 = { "%dst Mechanised Emu" }
+		22 = { "%dnd Mechanised Emu" }
+		23 = { "%drd Mechanised Emu" }
+		
+		# Historically, although the Emus considered using mechanised over motorized, they never did and eventually scrapped the mechanised concept, preferring motorized units instead for an unknown reason
+	}
+}
+
+EMU_GAR_01 = 
+{
+	name = "Garrison Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_INF_01 }
+
+	fallback_name = "%d Guard Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Guard Emu" }
+		2 = { "%dnd Guard Emu" }
+		3 = { "%drd Guard Emu" }
+		4 = { "%dth Guard Emu" }
+		5 = { "%dth Guard Emu" }
+		10 = { "%dth Guard Emu" }
+		11 = { "%dth Guard Emu" }
+		12 = { "%dth Guard Emu" }
+		13 = { "%dth Guard Emu" }
+		14 = { "%dth Guard Emu" }
+		15 = { "%dth Guard Emu" }
+		16 = { "%dth Guard Emu" }
+		17 = { "%dth Guard Emu" }
+		18 = { "%dth Guard Emu" }
+		19 = { "%dth Guard Emu" }
+		20 = { "%dth Guard Emu" }
+		21 = { "%dst Guard Emu" }
+		22 = { "%dnd Guard Emu" }
+		23 = { "%drd Guard Emu" }
+		24 = { "%dth Guard Emu" }
+		25 = { "%dth Guard Emu" }
+		26 = { "%dth Guard Emu" }
+		27 = { "%dth Guard Emu" }
+		28 = { "%dth Guard Emu" }
+		29 = { "%dth Guard Emu" }
+		30 = { "%dth Guard Emu" }
+		31 = { "%dst Guard Emu" }
+		32 = { "%dnd Guard Emu" }
+		33 = { "%drd Guard Emu" }
+		34 = { "%dth Guard Emu" }
+		35 = { "%dth Guard Emu" }
+		36 = { "%dth Guard Emu" }
+		37 = { "%dth Guard Emu" }
+		38 = { "%dth Guard Emu" }
+		39 = { "%dth Guard Emu" }
+		40 = { "%dth Guard Emu" }
+		41 = { "%dst Guard Emu" }
+		42 = { "%dnd Guard Emu" }
+		43 = { "%drd Guard Emu" }
+		44 = { "%dth Guard Emu" }
+		45 = { "%dth Guard Emu" }
+		46 = { "%dth Guard Emu" }
+		47 = { "%dth Guard Emu" }
+		48 = { "%dth Guard Emu" }
+		49 = { "%dth Guard Emu" }
+		50 = { "%dth Guard Emu" }
+		51 = { "%dst Guard Emu" }
+		52 = { "%dnd Guard Emu" }
+		53 = { "%drd Guard Emu" }
+		
+		# The first Guard Emus were first deployed in Uluru, to protect the king from threats such as assassinations, capture, and in the battlefield, where the chances of getting shot are drastically increased. It wasn't until 1944 when Guard Emus slowly started getting merged with Infantry, and in late 1945 the last of the Guard Emus were disbanded and changed to Infantry
+	}
+}
+
+EMU_KIG_01 = # King's Guard
+{
+	name = "King's Guard"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_GAR_01 }
+
+	fallback_name = "%d King's Guard"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst King's Guard" }
+		2 = { "%dnd King's Guard" }
+		3 = { "%drd King's Guard" }
+		4 = { "%dth King's Guard" }
+		5 = { "%dth King's Guard" }
+		10 = { "%dth Royal King's Guard" }
+		11 = { "%dth King's Guard" }
+		12 = { "%dth King's Guard" }
+		13 = { "%dth King's Guard" }
+		14 = { "%dth King's Guard" }
+		15 = { "%dth King's Guard" }
+		16 = { "%dth King's Guard" }
+		17 = { "%dth King's Guard" }
+		18 = { "%dth King's Guard" }
+		19 = { "%dth King's Guard" }
+		20 = { "%dth King's Guard" }
+		21 = { "%dst King's Guard" }
+		22 = { "%dnd King's Guard" }
+		23 = { "%drd King's Guard" }
+		24 = { "%dth King's Guard" }
+		25 = { "%dth King's Guard" }
+		26 = { "%dth King's Guard" }
+		27 = { "%dth King's Guard" }
+		56 = { "%dth Royal King's Guard" }
+		28 = { "%dth Royal King's Guard" }
+		29 = { "%dth King's Guard" }
+		30 = { "%dth King's Guard" }
+		31 = { "%dst King's Guard" }
+		32 = { "%dnd King's Guard" }
+		33 = { "%drd King's Guard" }
+		34 = { "%dth King's Guard" }
+		35 = { "%dth King's Guard" }
+		36 = { "%dth King's Guard" }
+		37 = { "%dth King's Guard" }
+		38 = { "%dth King's Guard" }
+		39 = { "%dth King's Guard" }
+		40 = { "%dth King's Guard" }
+		55 = { "%21st Elite King's Guard" }
+		41 = { "%dst King's Guard" }
+		42 = { "%dnd King's Guard" }
+		43 = { "%drd King's Guard" }
+		44 = { "%dth King's Guard" }
+		45 = { "%dth King's Guard" }
+		46 = { "%dth King's Guard" }
+		47 = { "%dth King's Guard" }
+		48 = { "%dth King's Guard" }
+		49 = { "%dth King's Guard" }
+		50 = { "%dth King's Guard" }
+		51 = { "%dst King's Guard" }
+		52 = { "%dnd Elite King's Guard" }
+		53 = { "%drd Elite King's Guard" }
+		54 = { "81st King Emu's Guard" }
+		
+		# The first Guard Emus were first deployed in Uluru, to protect the king from threats such as assassinations, capture, and in the battlefield, where the chances of getting shot are drastically increased. It wasn't until 1944 when Guard Emus slowly started getting merged with Infantry, and in late 1945 the last of the Guard Emus were disbanded and changed to Infantry
+	}
+}
+
+EMU_MAR_01 = 
+{
+	name = "Marine Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { EMU_GAR_01 }
+
+	fallback_name = "%d Marine Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Marine Emu" }
+		2 = { "%dnd Marine Emu" }
+		3 = { "%drd Marine Emu" }
+		4 = { "%dth Marine Emu" }
+		5 = { "%dth Marine Emu" }
+		6 = { "%dth Marine Emu" }
+		7 = { "%dth Marine Emu" }
+		8 = { "%dth Marine Emu" }
+		9 = { "%dth Marine Emu" }
+		10 = { "%dth Marine Emu" }
+		11 = { "%dth Marine Emu" }
+		12 = { "%dth Marine Emu" }
+		13 = { "%dth Marine Emu" }
+		14 = { "%dth Marine Emu" }
+		15 = { "%dth Marine Emu" }
+		16 = { "%dth Marine Emu" }
+		17 = { "%dth Marine Emu" }
+		18 = { "%dth Marine Emu" }
+		19 = { "%dth Marine Emu" }
+		20 = { "%dth Marine Emu" }
+		21 = { "%dst Marine Emu" }
+		22 = { "%dnd Marine Emu" }
+		23 = { "%drd Marine Emu" }
+		24 = { "%dth Marine Emu" }
+		25 = { "%dth Marine Emu" }
+		26 = { "%dth Marine Emu" }
+		27 = { "%dth Marine Emu" }
+		28 = { "%dth Marine Emu" }
+		29 = { "%dth Marine Emu" }
+		30 = { "%dth Marine Emu" }
+		
+		# Emus never used Marines that much due to their preference of land over sea. They did use some, but only for short naval invasions (about the equivalent of traveling from the tip of Queensland to the nearest body of land in Papua New Guinea)
+	}
+}
+
+EMU_MTN_01 = 
+{
+	name = "Mountain Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { EMU_INF_01 }
+
+	fallback_name = "%d Mountain Emu"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Mountain Emu" }
+		2 = { "%dnd Mountain Emu" }
+		3 = { "%drd Mountain Emu" }
+		4 = { "%dth Mountain Emu" }
+		5 = { "%dth Mountain Emu" }
+		6 = { "%dth Mountain Emu" }
+		7 = { "%dth Mountain Emu" }
+		8 = { "%dth Mountain Emu" }
+		9 = { "%dth Mountain Emu" }
+		10 = { "%dth Mountain Emu" }
+		11 = { "%dth Mountain Emu" }
+		12 = { "%dth Mountain Emu" }
+		13 = { "%dth Mountain Emu" }
+		14 = { "%dth Mountain Emu" }
+		15 = { "%dth Mountain Emu" }
+		16 = { "%dth Mountain Emu" }
+		17 = { "%dth Mountain Emu" }
+		18 = { "%dth Mountain Emu" }
+		19 = { "%dth Mountain Emu" }
+		20 = { "%dth Mountain Emu" }
+		21 = { "%dst Mountain Emu" }
+		22 = { "%dnd Mountain Emu" }
+		23 = { "%drd Mountain Emu" }
+		24 = { "%dth Mountain Emu" }
+		25 = { "%dth Mountain Emu" }
+		26 = { "%dth Mountain Emu" }
+		27 = { "%dth Mountain Emu" }
+		28 = { "%dth Mountain Emu" }
+		29 = { "%dth Mountain Emu" }
+		30 = { "%dth Mountain Emu" }
+		31 = { "%dst Mountain Emu" }
+		32 = { "%dnd Mountain Emu" }
+		33 = { "%drd Mountain Emu" }
+		34 = { "%dth Mountain Emu" }
+		35 = { "%dth Mountain Emu" }
+		36 = { "%dth Mountain Emu" }
+		37 = { "%dth Mountain Emu" }
+		38 = { "%dth Mountain Emu" }
+		39 = { "%dth Mountain Emu" }
+		40 = { "%dth Mountain Emu" }
+		41 = { "%dst Mountain Emu" }
+		42 = { "%dnd Mountain Emu" }
+		43 = { "%drd Mountain Emu" }
+		44 = { "%dth Mountain Emu" }
+		45 = { "%dth Mountain Emu" }
+		46 = { "%dth Mountain Emu" }
+		47 = { "%dth Mountain Emu" }
+		48 = { "%dth Mountain Emu" }
+		49 = { "%dth Mountain Emu" }
+		50 = { "%dth Mountain Emu" }
+		51 = { "%dst Mountain Emu" }
+		52 = { "%dnd Mountain Emu" }
+		53 = { "%drd Mountain Emu" }
+		
+		# Emus never adapted to live in mountains, let alone travel there. It wasn't until recently that the Emus finally managed to traverse some small mountain ranges and make temporary settlements there
+	}
+}
+
+EMU_PAR_01 = 
+{
+	name = "Airborne Divisions"
+
+	for_countries = { EMU }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { EMU_GAR_01 }
+
+	fallback_name = "%d Emu Paratrooper"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dst Emu Paratrooper" }
+		2 = { "%dnd Emu Paratrooper" }
+		3 = { "%drd Emu Paratrooper" }
+		4 = { "%dth Emu Paratrooper" }
+		5 = { "%dth Emu Paratrooper" }
+		6 = { "%dth Emu Paratrooper" }
+		7 = { "%dth Emu Paratrooper" }
+		8 = { "%dth Emu Paratrooper" }
+		9 = { "%dth Emu Paratrooper" }
+		10 = { "%dth Emu Paratrooper" }
+		11 = { "%dth Emu Paratrooper" }
+		12 = { "%dth Emu Paratrooper" }
+		13 = { "%dth Emu Paratrooper" }
+		14 = { "%dth Emu Paratrooper" }
+		15 = { "%dth Emu Paratrooper" }
+		16 = { "%dth Emu Paratrooper" }
+		17 = { "%dth Emu Paratrooper" }
+		18 = { "%dth Emu Paratrooper" }
+		19 = { "%dth Emu Paratrooper" }
+		20 = { "%dth Emu Paratrooper" }
+		21 = { "%dst Emu Paratrooper" }
+		22 = { "%dnd Emu Paratrooper" }
+		23 = { "%drd Emu Paratrooper" }
+		24 = { "%dth Emu Paratrooper" }
+		25 = { "%dth Emu Paratrooper" }
+		26 = { "%dth Emu Paratrooper" }
+		27 = { "%dth Emu Paratrooper" }
+		28 = { "%dth Emu Paratrooper" }
+		29 = { "%dth Emu Paratrooper" }
+		30 = { "%dth Emu Paratrooper" }
+		
+        # Emus never used Paratroopers historically, due to their preference of land over air. They lost their ability to fly long ago, before humans came into existence
+	}
+}
