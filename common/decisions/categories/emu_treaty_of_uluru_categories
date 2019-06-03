@@ -1,0 +1,6 @@
+EMU_treaty_of_uluru = {
+    
+	allowed = {
+	    original_tag = EMU
+	}
+}
