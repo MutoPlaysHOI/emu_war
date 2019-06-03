@@ -1,0 +1,496 @@
+ideas = {
+    country = {
+	   bad_soldiers = {
+	       allowed = {
+		       original_tag = EMU
+		   }
+		   
+		   allowed_civil_war = {
+		       always = yes
+		   }
+		   
+		   removal_cost = -1
+		   
+		   picture = GFX_idea_bad_soldiers
+		   
+		   modifier = {
+		       army_attack_factor = -0.5
+			   planning_speed = -0.25
+			   army_org_factor = -0.5
+			   command_power_gain = -0.8
+			   training_time_army_factor = -0.2
+			   land_reinforce_rate = -0.01
+		    }
+	   }
+	   
+	   delusional_commanders = {
+	       allowed = {
+		       original_tag = EMU
+		   }
+		   
+		   allowed_civil_war = {
+		       always = yes
+		   }
+		   
+		   removal_cost = -1
+		   
+		   picture = delusional_commander
+		   
+		   modifier = {
+		       army_attack_factor = -0.6
+			   planning_speed = -0.5
+			   army_org_factor = -0.25
+			   command_power_gain = -0.2
+			   political_power_gain = -0.5
+			   training_time_army_factor = -0.5
+			   war_support_factor = -0.1
+			   army_attack_factor = -0.3
+			   army_defence_factor = -0.1
+			   attrition = 0.25
+		    }
+	   }
+	
+	   victors_of_the_emu_war = {
+	    
+			allowed = {
+				original_tag = EMU
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = GFX_idea_victors_of_the_emu_war
+			
+			modifier = {
+			    stability_weekly = 0.02
+				war_support_weekly = 0.02
+				army_speed_factor = 0.15
+				army_morale_Factor = 0.25
+				army_org_factor = 0.25
+			}	
+            
+            rule = {
+			    can_create_factions = yes
+			}			
+	
+	    }
+	
+ 		superior_beings = {
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = GFX_idea_superior_beings
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = 5
+				attrition = -0.95
+				planning_speed = 0.25
+				army_speed_factor = 1.1
+				army_morale_Factor = 0.5
+				army_org_factor = 0.65
+			}
+		}
+		
+		construction = {
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = GFX_idea_construction
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 8
+				stability_weekly = 0.02
+			}
+		}
+		
+		recruit = {
+		    allowed = {
+			    always = yes
+			}
+			
+			allowed_civil_war = {
+			    always = yes
+			}
+			
+			picture = GFX_idea_recruit
+			
+			removal_cost = -1
+			
+			modifier = {
+			    conscription = 0.5
+				war_support_weekly = 0.02
+			}
+		}
+		
+		blitzkrieg = {
+		    allowed = {
+			    always = yes
+			}
+			
+			allowed_civil_war = {
+			    always = yes
+			}
+			
+			picture = GFX_idea_blitzkrieg
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = 1
+				army_speed_factor = 0.5
+				army_org_factor = 0.25
+				air_close_air_support_agility_factor = 1
+				air_close_air_support_attack_factor = 1
+				air_close_air_support_defence_factor = 1
+			}
+		}
+		
+		treaty_of_uluru = {
+		    allowed = {
+			    original_tag = EMU
+			}
+			
+			allowed_civil_war = {
+			    always = no
+			}
+			
+			picture = GFX_idea_treaty_of_uluru
+			
+			removal_cost = -1
+			
+			modifier = {
+			    stability_factor = -0.2
+				war_support_factor = -0.2
+				stability_weekly = -0.03
+				war_support_weekly = -0.025
+			    conscription = -0.005
+			    production_speed_arms_factory_factor = -1
+			}
+			
+			targeted_modifier = {
+				tag = AST
+				attack_bonus_against = -0.75		
+			}
+		}
+		
+		final_measures = {
+		    allowed = {
+			    original_tag = EMU
+			}
+			
+			available = {
+			    NOT = {
+				    has_war = no
+				}
+			}
+			
+			allowed_civil_war = {
+			    has_government = animalist
+			}
+			
+			picture = final_measures
+			
+			removal_cost = -1
+			
+			modifier = {
+			    war_support_factor = 0.1
+				war_support_weekly = 0.005
+				stability_factor = -0.1
+				conscription = 0.1
+				non_core_manpower = 0.05
+				planning_speed = 0.1
+				army_attack_factor = 0.6
+				army_defence_factor = 0.3
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = -0.3
+				partisan_effect = 0.25
+			}
+		}
+		
+		rebuild_armament_factories_1 = {
+		    allowed = {
+			    always = no
+			}
+			
+			available = {
+			    original_tag = EMU
+			}
+			
+			picture = man_five_year_plan_tank
+			
+			removal_cost = -1
+			
+			modifier = {
+			    production_speed_arms_factory_factor = 0.5
+				industrial_capacity_factory = 0.2
+			}
+		}
+		
+		rebuild_armament_factories_2 = {
+		    allowed = {
+			    always = no
+			}
+			
+			available = {
+			    original_tag = EMU
+			}
+			
+			picture = man_five_year_plan_tank
+			
+			removal_cost = -1
+			
+			modifier = {
+			    production_speed_arms_factory_factor = 0.75
+				industrial_capacity_factory = 0.3
+			}
+		}
+		
+		rebuild_armament_factories_3 = {
+		    allowed = {
+			    always = no
+			}
+			
+			available = {
+			    original_tag = EMU
+			}
+			
+			picture = man_five_year_plan_tank
+			
+			removal_cost = -1
+			
+			modifier = {
+			    production_speed_arms_factory_factor = 1
+				industrial_capacity_factory = 0.5
+			}
+		}
+		
+		project_emu = {
+		    allowed = {
+			    always = no
+			}
+			
+			available = {
+			    original_tag = EMU
+				NOT = { has_global_flag = project_emu_revealed }
+			}
+			
+			picture = project_emu
+			
+			removal_cost = -1
+			
+			modifier = {
+			    research_speed_factor = 1.5
+			}
+		}
+    }
+	
+	
+	political_advisor = {
+		kawraak = {
+
+			picture = emu_advisor_1
+			
+			allowed = {
+				original_tag = EMU
+			}
+			
+			traits = { popular_figurehead }
+		}
+
+        grek = {
+		    
+			picture = emu_advisor_2
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { silent_workhorse }
+		}
+
+        eustace = {
+		    
+			picture = emu_advisor_3
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { staunch_monarchist }
+		}
+
+        emu_hitler = {
+		
+		    picture = emu_advisor_4
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { fascist_demagogue }
+		}
+
+        oork = {
+		
+		    picture = emu_advisor_5
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { backroom_backstabber }
+		}
+
+        kruup = {
+		
+		    picture = emu_advisor_6
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { communist_revolutionary }
+		}
+
+        gleerk = {
+		
+		    picture = emu_advisor_7
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			traits = { democratic_reformer }
+		}	
+	}
+	
+	tank_manufacturer = {
+	    emu_tank_company = {
+		
+		    picture = emu_tank_1
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			research_bonus = {
+			    armor = 0.10
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		emu_tank_designer = {
+		
+		    picture = emu_tank_2
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			research_bonus = {
+			    armor = 0.25
+			}
+			
+			traits = { tank_manufacturer }
+		}
+	}
+	
+	naval_manufacturer = {
+	    kangaroo_navy = {
+		    
+			picture = emu_navy_1
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			research_bonus = {
+			    naval_equipment = 0.10
+			}
+			
+			traits = { pacific_fleet_naval_manufacturer }
+		}
+		
+		emu_designnavy = {
+		
+		    picture = emu_navy_2
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			research_bonus = {
+			    naval_equipment = 0.10
+			}
+			
+			traits = { naval_manufacturer }
+		}
+	}
+	
+	aircraft_manufacturer = {
+	    emu_airdesigner = {
+		
+		    picture = emu_air_1
+			
+			allowed = {
+			    original_tag = EMU
+			}
+			
+			research_bonus = {
+			    air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+		}
+		
+		emu_airdesigner2 = {
+		    
+			picture = emu_air_2
+			
+			allowed = {
+			    OR = {
+				    original_tag = EMU
+					original_tag = AST
+				}
+			}
+			
+			available = {
+			    NOT = {
+				    EMU = {
+					    has_war_with = AST
+					}
+					AST = {
+					    has_war_with = EMU
+					}
+				}
+			}
+			
+			research_bonus = {
+			    air_equipment = 0.10
+			}
+			
+			traits = { emu_plane_upgrader }
+		}
+	}
+}
