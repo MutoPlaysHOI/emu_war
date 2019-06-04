@@ -1,0 +1,39 @@
+
+state={
+	id=522
+	name="STATE_522"
+	
+	manpower = 267812
+	state_category = megalopolis
+	
+	resources = {
+	    tungsten=87 # was: 100
+		chromium=56 # was: 60
+		aluminium=100 # was: 110
+		oil=562 # was: 580
+		steel = 60 # was: 65
+	}
+
+	history={
+		owner = EMU
+		buildings = {
+			infrastructure = 10
+			industrial_complex = 10
+			air_base = 10
+			1652 = {
+				naval_base = 10
+				coastal_bunker = 10
+			}
+			fuel_silo = 4
+			dockyard = 2
+		}
+		victory_points = {
+			1652 3 
+		}
+		add_core_of = EMU
+	}
+
+	provinces={
+		1652 2157 4630 5175 7453 8130 8228 8243 10983 
+	}
+}

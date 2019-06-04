@@ -1,0 +1,41 @@
+
+state={
+	id=520
+	name="STATE_520"
+
+	manpower = 873666
+	
+	state_category = megalopolis
+	
+	resources = {
+	    chromium=129 # was: 140
+	}
+	
+	
+	resources={
+		steel=362 # was: 370
+	}
+
+	history={
+		owner = EMU
+		buildings = {
+			infrastructure = 10
+			air_base = 10
+			industrial_complex = 3
+			arms_factory = 3
+			dockyard = 3
+			fuel_silo = 2
+			7669 = {
+				naval_base = 10
+			}
+		}
+		victory_points = {
+			7669 20 
+		}
+		add_core_of = EMU
+	}
+
+	provinces={
+		1217 1410 1422 1431 1454 1478 2139 4415 4441 4462 4487 5207 7457 7481 7669 8209 8247 10276 10288 10316 10518 10937 10958 11016 12104 12246 12290 12311 12326 12339 12499 13133 
+	}
+}

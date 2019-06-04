@@ -1,0 +1,29 @@
+
+state={
+	id=519
+	name="STATE_519"
+	manpower = 1080121
+	
+	state_category = megalopolis
+	
+	resources = {
+	    oil=69 # was: 69
+		aluminum=32 # was: 32
+	}
+
+	history={
+		owner = EMU
+		buildings = {
+			infrastructure = 10
+			arms_factory = 6
+			industrial_complex = 5
+            fuel_silo = 1
+			dockyard = 4
+		}
+		add_core_of = EMU
+	}
+
+	provinces={
+		1526 2191 2219 5183 5197 5211 5225 7567 8165 8186 8200 8220 10925 10927 10949 10969 10997 11011 12948 12962 12976 12990 12910
+	}
+}
