@@ -1,0 +1,114 @@
+spriteTypes = {	
+
+	# Emu War Ideas
+	
+	spriteType = {
+		name = "GFX_idea_victors_of_the_emu_war"
+		texturefile = "gfx/interface/ideas/idea_victors_of_the_emu_war.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_superior_beings"
+		texturefile = "gfx/interface/ideas/idea_superior_beings.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_loser_of_the_emu_war"
+		texturefile = "gfx/interface/ideas/idea_loser_of_the_emu_war.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_construction"
+		texturefile = "gfx/interface/ideas/idea_construction.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_recruit"
+		texturefile = "gfx/interface/ideas/idea_recruit.dds"
+	}	
+    spriteType = {
+		name = "GFX_idea_AST_emu_rebellion"
+		texturefile = "gfx/interface/ideas/idea_rebellion.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_blitzkrieg"
+		texturefile = "gfx/interface/ideas/idea_blitzkrieg.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_emu_advisor_1"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor1.dds"
+	}	
+    spriteType = {
+		name = "GFX_idea_emu_advisor_2"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor2.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_emu_advisor_3"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor3.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_emu_advisor_4"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor4.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_emu_advisor_5"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor5.dds"
+	}	
+    spriteType = {
+		name = "GFX_idea_emu_advisor_6"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor6.dds"
+	}	
+    spriteType = {
+		name = "GFX_idea_emu_advisor_7"
+		texturefile = "gfx/interface/ideas/idea_emu_advisor7.dds"
+	}
+    spriteType = {
+		name = "GFX_idea_emu_tank_1"
+		texturefile = "gfx/interface/ideas/idea_emu_tank1.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_emu_navy_1"
+		texturefile = "gfx/interface/ideas/idea_emu_navy1.dds"
+	
+	}
+    spriteType = {
+	    name = "GFX_idea_emu_navy_2"
+		texturefile = "gfx/interface/ideas/idea_emu_navy2.dds"
+	
+	}
+    spriteType = {
+	    name = "GFX_idea_emu_tank_2"
+		texturefile = "gfx/interface/ideas/idea_emu_tank2.dds"
+	
+	}
+    spriteType = {
+	    name = "GFX_idea_emu_air_1"
+		texturefile = "gfx/interface/ideas/idea_emu_air1.dds"
+	
+	}
+    spriteType = {
+	    name = "GFX_idea_bad_soldiers"
+		texturefile = "gfx/interface/ideas/idea_emu_bad_soldiers.dds"
+	
+	}
+    spriteType = {
+	    name = "GFX_idea_emu_air_2"
+		texturefile = "gfx/interface/ideas/idea_emu_air2.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_treaty_of_uluru"
+		texturefile = "gfx/interface/ideas/idea_emu_treaty_of_uluru.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_delusional_commander"
+		texturefile = "gfx/interface/ideas/idea_emu_delusional_commanders.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_final_measures"
+		texturefile = "gfx/interface/ideas/idea_emu_final_measures.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_broken_economy"
+		texturefile = "gfx/interface/ideas/idea_emu_broken_economy.dds"
+	}
+    spriteType = {
+	    name = "GFX_idea_project_emu"
+		texturefile = "gfx/interface/ideas/idea_emu_project.dds"
+	}	
+}

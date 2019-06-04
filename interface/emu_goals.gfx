@@ -1,0 +1,68 @@
+spriteTypes = {	
+
+	### EMU ###
+	
+	SpriteType = { 
+		name = "GFX_focus_upgrade_bs"
+		texturefile = "gfx/interface/goals/focus_upgrade_bs.dds"
+	}	
+	SpriteType = { 
+		name = "GFX_focus_upgradecruiser"
+		texturefile = "gfx/interface/goals/focus_upgradecruiser.dds"
+	}
+	SpriteType = { 
+		name = "GFX_focus_indonesia"
+		texturefile = "gfx/interface/goals/focus_indonesia.dds"
+	}
+	SpriteType = { 
+		name = "GFX_focus_project"
+		texturefile = "gfx/interface/goals/focus_project.dds"
+	}
+	SpriteType = { 
+		name = "GFX_focus_army"
+		texturefile = "gfx/interface/goals/focus_army.dds"
+	}
+    SpriteType = {
+	    name = "GFX_focus_superior_beings"
+		texturefile = "gfx/interface/goals/focus_superior_beings.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_civilwar"
+		texturefile = "gfx/interface/goals/focus_civilwar.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_rebellions"
+		texturefile = "gfx/interface/goals/focus_rebellions.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_emu_recruiting_programs"
+		texturefile = "gfx/interface/goals/focus_emu_recruiting_programs.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_nzlwar"
+		texturefile = "gfx/interface/goals/focus_nzlwar.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_emunzl"
+		texturefile = "gfx/interface/goals/focus_emunzl.dds"
+	}
+	
+	### USA ###
+	
+    SpriteType = {
+	    name = "GFX_focus_war_plan_brown"
+		texturefile = "gfx/interface/goals/focus_war_plan_brown.dds"
+	}
+
+    ### EME ###
+
+    SpriteType = {
+	    name = "GFX_focus_defend_victoria"
+		texturefile = "gfx/interface/goals/focus_defend_the_home_of_the_revolution.dds"
+	}
+    SpriteType = {
+	    name = "GFX_focus_betray_emus"
+		texturefile = "gfx/interface/goals/focus_betrayemus.dds"
+	}	
+
+}
