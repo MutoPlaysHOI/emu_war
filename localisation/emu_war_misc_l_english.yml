@@ -1,0 +1,46 @@
+﻿l_english:
+ EMU_fascism_party:0 "ENU"
+ EMU_fascism_party_long:0 "Emu Nationalist Union"
+ EMU_communism_party:0 "ECP"
+ EMU_communism_party_long:0 "Emu Communist Party"
+ EMU_democratic_party:0 "ELP"
+ EMU_democratic_party_long:0 "Emu Liberal Party"
+ EMU_neutrality_party:0 "Non-Aligned"
+ EMU_neutrality_party_long:0 "Non-Aligned"
+ EMU_animalist_party:0 "EWPS"
+ EMU_animalist_party_long:0 "Emu Wildlife Preservation Syndicates"
+ 
+ custom_diff_strong_emu:0 "Strengthen Emu Republic"
+ 
+ animalist_drift:0 "Daily Animalist Support"
+ animalist_acceptance:0 "Acceptance of Animalist Diplomacy"
+ 
+ ### Emu War Tech ### DO NOT REMOVE - May not be needed but still used to balance the emu tech folder
+ emu_folder:0 "Emu Tech"
+ emu_folder_desc:0 "Abilities and other technologies designed for Emu use."
+ agile_emus:0 "Basic Agility"
+ agile_emus_desc:0 "Agility is key to winning battles. Without agility, the enemy would spot us and end us quickly. Making sure that every Emu in the military has basic, but effective agility would benefit us in many ways."
+
+ EMU_announce_threat:0 "Emus announce victory"
+ 1936_bookmark_threat:0 "Emus unite into one nation"
+ 1939_bookmark_threat2:0 "2nd Emu War"
+ animalist_empire_threat:0 "Proclaimed an Animalist Empire"
+ 
+ emu_rebellion_ast:0 "Has rebellions supporting Emuism"
+ nzl_kiwi_rebellion:0 "Has Kiwi rebellions supporting Animalism"
+ 
+ animalian_defence_pact:0 "Animalian Defence Pact"
+ 
+ civil_war_emu:0 "Emu Rebellion"
+ civil_war_emu_desc:0 "Civil war! Australia is split into factions who battle for control of the state."
+ CIVIL_WAR_EMU_NAME:0 "Emu Rebellion"
+ 
+ emu_war_goal:0 "Emu War"
+ emu_war_goal_desc:0 "Emu War! Australia is destined to cleanse the world of the Emu threat."
+ emu_war_goal_short_desc:0 "This war goal will trigger the 2nd Emu War, and will make annexation significantly cheaper at the peace conference."
+ EMU_WAR_GOAL_NAME:0 "The 2nd Emu War"
+ 
+ take_animals:0 "Take the Animals' Land"
+ take_animals_desc:0 "Take §Y$STATE$§! from the Animals."
+ take_animals_short_desc:0 "This war goal will make selected states significantly cheaper to pick at the peace conference."
+ TAKE_ANIMALS_NAME:0 "$ORDER$$FIRST$ war for $SECOND$ Land"
