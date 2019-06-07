@@ -1,4 +1,4 @@
-﻿capital = 517
+capital = 517
 
 oob = "EME_civilwar"
 set_stability = 0.8
@@ -113,35 +113,19 @@ create_country_leader = {
 
 1939.1.1 = {
     set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 0
-			}
-
-			fascism = {
-				popularity = 0
-			}
-			
-			communism = {
-				popularity = 0
-				#banned = no #default is no
-			}
-			
-			neutrality = {
-		        popularity = 0
-		    }
-			
-			animalist = {
-			    popularity = 100
-			}
-		}
-		
 		ruling_party = animalist
 		last_election = "1937.10.23"
 		election_frequency = 36
 		elections_allowed = no
 	}
+	set_popularities = {
+	    democratic = 0
+		fascism = 0
+		communism = 0
+		neutrality = 0
+		animalist = 0
+	}
+	
 	add_political_power = 1198
 	oob = "AST_1939"
 	
