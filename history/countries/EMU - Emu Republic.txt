@@ -534,7 +534,7 @@ set_popularities = {
 		fascism = 0
 		communism = 0
 		neutrality = 0
-		animalist = 0
+		animalist = 100
 	}
 
 create_country_leader = {
@@ -584,35 +584,18 @@ create_country_leader = {
 }
 
 1939.1.1 = {
-	set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 10
-			}
-
-			fascism = {
-				popularity = 10
-			}
-			
-			communism = {
-				popularity = 10
-				#banned = no #default is no
-			}
-			
-			neutrality = {
-		        popularity = 10
-		    }
-			
-			animalist = {
-			    popularity = 60
-			}
-		}
-		
-		ruling_party = animalist
-		last_election = "1937.10.23"
-		election_frequency = 36
-		elections_allowed = yes
+	set_politics = {	
+	ruling_party = animalist
+	last_election = "1934.9.15"
+	election_frequency = 36
+	elections_allowed = no
+}
+set_popularities = {
+	    democratic = 10
+		fascism = 10
+		communism = 10
+		neutrality = 10
+		animalist = 60
 	}
 	set_convoys = 250000
 }
