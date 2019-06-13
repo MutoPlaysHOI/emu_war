@@ -14,29 +14,29 @@ focus_tree = {
 		id = emu_legacy
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
-		available = {
-		    NOT = { is_subject = yes }
-		}
 		x = 2
 		y = 0
+			available = {
+					NOT = {
+							is_subject = yes
+						}
+					has_government = animalist
+				}
 			available_if_capitulated = yes
 			completion_reward = {
-				add_political_power = 150
-				add_stability = -0.05
-				
-				hidden_effect = {
-				    set_major = yes
+					add_political_power = 150
+					add_stability = -0.05
+					hidden_effect = {
+							set_major = yes
+						}
 				}
-			}
 			ai_will_do = {
-			    factor = 200
-				
-				modifier = {
-				    factor = 2
-					
-					has_political_power > 500
+					factor = 200
+					modifier = {
+							factor = 2
+							has_political_power > 500
+						}
 				}
-			}	
 
 	}
 	focus = {
@@ -45,22 +45,70 @@ focus_tree = {
 		cost = 5.00
 		x = 21
 		y = 0
-		available_if_capitulated = yes
-		completion_reward = {
-		    navy_experience = 25
-			air_experience = 25
-			army_experience = 25
-			remove_ideas = bad_soldiers
+			available_if_capitulated = yes
+			completion_reward = {
+					navy_experience = 25
+					air_experience = 25
+					army_experience = 25
+					remove_ideas = bad_soldiers
+				}
+			ai_will_do = {
+					factor = 10
+					modifier = {
+							factor = 200
+							has_idea = bad_soldiers
+						}
+				}
+
+	}
+	focus = {
+		id = emu_fix_the_economy
+		icon = GFX_focus_fix_the_economy
+		cost = 60.00
+		x = 42
+		y = 0
+			available = {
+					NOT = {
+							has_idea = treaty_of_uluru
+						}
+				}
+			available_if_capitulated = yes
+			completion_reward = {
+					custom_effect_tooltip = emu_fix_the_economy_tt
+					swap_ideas = {
+							remove_idea = broken_economy
+							add_idea = civilian_economy
+						}
+				}
+			ai_will_do = {
+					factor = 80
+					modifier = {
+							factor = 2500
+							has_idea = broken_economy
+						}
+				}
+
+	}
+	focus = {
+		id = emu_our_own_ways
+		icon = GFX_focus_superior_beings
+		cost = 10.00
+		mutually_exclusive = {
+			focus = emu_a_change_of_heart
 		}
-		ai_will_do = {
-		    factor = 10
-			
-			modifier = {
-			    factor = 200
-				
-				has_idea = bad_soldiers
-			}
+		x = 58
+		y = 0
+
+	}
+	focus = {
+		id = emu_a_change_of_heart
+		icon = GFX_focus_betray_emus
+		cost = 10.00
+		mutually_exclusive = {
+			focus = emu_our_own_ways
 		}
+		x = 68
+		y = 0
 
 	}
 	focus = {
@@ -77,29 +125,30 @@ focus_tree = {
 		y = 1
 			available_if_capitulated = yes
 			completion_reward = {
-				add_named_threat = {
-					threat = 50
-					name = EMU_announce_threat
+					add_named_threat = {
+							threat = 50
+							name = EMU_announce_threat
+						}
+					custom_effect_tooltip = emu_atw_tt
+					custom_effect_tooltip = emu_atw_nations
+					AST = {
+							custom_effect_tooltip = emu_atw_australia
+						}
+					hidden_effect = {
+							news_event = {
+									hours = 6
+									id = emu.6
+								}
+						}
 				}
-				custom_effect_tooltip = emu_atw_tt
-				custom_effect_tooltip = emu_atw_nations
-				AST = {
-				    custom_effect_tooltip = emu_atw_australia
-				}
-				hidden_effect = {
-				    news_event = { hours = 6 id = emu.6 }	
-				}
-			}
 			ai_will_do = {
-			    factor = 500
-				
-				modifier = {
-				    factor = 0
-					
-					has_defensive_war_with = AST
-					surrender_progress > 0.25
+					factor = 500
+					modifier = {
+							factor = 0
+							has_defensive_war_with = AST
+							surrender_progress > 0.25
+						}
 				}
-			}
 
 	}
 	focus = {
@@ -120,21 +169,19 @@ focus_tree = {
 							add_timed_idea = {
 									idea = loser_of_the_emu_war
 									days = 1095
-							}
+								}
 						}
-						custom_effect_tooltip = emu_ata_warning
+					custom_effect_tooltip = emu_ata_warning
 				}
 			ai_will_do = {
-			    factor = 40
-				
-				modifier = {
-				    factor = 0
-					
-					NOT = {
-					    country_exists = AST
-					}
+					factor = 40
+					modifier = {
+							factor = 0
+							NOT = {
+									country_exists = AST
+								}
+						}
 				}
-			}	
 
 	}
 	focus = {
@@ -145,42 +192,41 @@ focus_tree = {
 			focus = emu_atw
 			focus = emu_ata
 		}
-		available = {
-		    AND = {
-			    NOT = { is_subject = yes }
-			    has_capitulated = no
-		        OR = {
-			        num_divisions > 72
-				    is_faction_leader = yes
-				    is_major = yes
-			    }
-				has_stability > 0.8
-				has_war_support > 0.6
-			}
-		}
 		x = 0
 		y = 2
+			available = {
+					AND = {
+							NOT = {
+									is_subject = yes
+								}
+							has_capitulated = no
+							OR = {
+									num_divisions > 72
+									is_faction_leader = yes
+									is_major = yes
+								}
+							has_stability > 0.8
+							has_war_support > 0.6
+						}
+				}
 			available_if_capitulated = yes
 			completion_reward = {
 					add_ideas = superior_beings
 				}
 			ai_will_do = {
-			    factor = 80
-				
-				modifier = {
-				    factor = 160
-					
-					has_war = yes
+					factor = 80
+					modifier = {
+							factor = 160
+							has_war = yes
+						}
+					modifier = {
+							factor = 0
+							OR = {
+									has_capitulated = yes
+									surrender_progress > 0.5
+								}
+						}
 				}
-				modifier = {
-				    factor = 0
-					
-					OR = {
-					    has_capitulated = yes
-						surrender_progress > 0.5
-					}
-				}
-			}	
 
 	}
 	focus = {
@@ -294,15 +340,19 @@ focus_tree = {
 		}
 		x = 2
 		y = 3
-		available = {
-		    country_exists = AST
-		}
-		bypass = {
-		    OR = {
-			    AST = { exists = no }
-				AST = { is_subject_of = EMU }
-			}
-		}
+			available = {
+					country_exists = AST
+				}
+			bypass = {
+					OR = {
+							AST = {
+									exists = no
+								}
+							AST = {
+									is_subject_of = EMU
+								}
+						}
+				}
 			available_if_capitulated = yes
 			completion_reward = {
 					custom_effect_tooltip = emu_fort_tt
@@ -324,7 +374,7 @@ focus_tree = {
 											province = 2139
 											level = 1
 											instant_build = yes
-										}	
+										}
 									add_building_construction = {
 											type = bunker
 											province = 1139
@@ -392,30 +442,27 @@ focus_tree = {
 											instant_build = yes
 										}
 									add_building_construction = {
-									        type = bunker
+											type = bunker
 											province = 12910
 											level = 1
 											instant_build = yes
-									    }	
+										}
 								}
 						}
 				}
 			ai_will_do = {
-			    factor = 200
-				
-				modifier = {
-				    factor = 1000
-					
-					AST = {
-					    has_war = yes
-					}
+					factor = 200
+					modifier = {
+							factor = 1000
+							AST = {
+									has_war = yes
+								}
+						}
+					modifier = {
+							factor = 4000
+							has_defensive_war_with = AST
+						}
 				}
-				modifier = {
-				    factor = 4000
-					
-					has_defensive_war_with = AST
-				}
-			}	
 
 	}
 	focus = {
@@ -427,19 +474,25 @@ focus_tree = {
 		}
 		x = 2
 		y = 4
-		available = {
-		    country_exists = AST
-		    OR = {
-			    has_war = yes
-				AST = { has_war = yes }
-			}
-		}
-		bypass = {
-		    OR = {
-			    AST = { exists = no }
-				AST = { is_subject_of = EMU }
-			}
-		}
+			available = {
+					country_exists = AST
+					OR = {
+							has_war = yes
+							AST = {
+									has_war = yes
+								}
+						}
+				}
+			bypass = {
+					OR = {
+							AST = {
+									exists = no
+								}
+							AST = {
+									is_subject_of = EMU
+								}
+						}
+				}
 			available_if_capitulated = yes
 			completion_reward = {
 					custom_effect_tooltip = emu_fortifycoast_tt
@@ -463,21 +516,19 @@ focus_tree = {
 								}
 						}
 				}
-				ai_will_do = {
-				    factor = 200
-					
+			ai_will_do = {
+					factor = 200
 					modifier = {
-					    factor = 0
-						
-						every_owned_state = {
-						    limit = {
-							    is_on_continent = australia
-								is_in_home_area = yes
-								is_coastal = yes
-							}
-							coastal_bunker > 2
+							factor = 0
+							every_owned_state = {
+									limit = {
+											is_on_continent = australia
+											is_in_home_area = yes
+											is_coastal = yes
+										}
+									coastal_bunker > 2
+								}
 						}
-					}
 				}
 
 	}
@@ -491,18 +542,24 @@ focus_tree = {
 		x = 2
 		y = 5
 			available = {
-			    AST = { exists = yes }
-				any_other_country = {
-					is_in_faction_with = AST
-					has_war = yes
+					AST = {
+							exists = yes
+						}
+					any_other_country = {
+							is_in_faction_with = AST
+							has_war = yes
+						}
 				}
-			}
 			bypass = {
-			    OR = {
-			        AST = { exists = no }
-				    AST = { is_subject_of = EMU }
-			    }    
-			}
+					OR = {
+							AST = {
+									exists = no
+								}
+							AST = {
+									is_subject_of = EMU
+								}
+						}
+				}
 			available_if_capitulated = yes
 			completion_reward = {
 					custom_effect_tooltip = emu_fortifyall_tt
@@ -536,23 +593,23 @@ focus_tree = {
 		x = 2
 		y = 6
 			available = {
-				OR = {
-				    EMU = {
-					    has_war = yes
-				    }
-				    any_country = {
-					    limit = { is_in_faction_with = EMU }
-				        has_war = yes
-				    }
+					OR = {
+							EMU = {
+									has_war = yes
+								}
+							any_country = {
+									limit = {
+											is_in_faction_with = EMU
+										}
+									has_war = yes
+								}
+						}
 				}
-			}
-		available_if_capitulated = yes
-        completion_reward = {
-		    add_war_support = 0.1
-			add_ideas = {
-			    final_measures
-			}
-		}		
+			available_if_capitulated = yes
+			completion_reward = {
+					add_war_support = 0.1
+					add_ideas = { final_measures }
+				}
 
 	}
 	focus = {
@@ -565,21 +622,21 @@ focus_tree = {
 		}
 		x = 1
 		y = 7
-		available = {
-		    AST = {
-                NOT = {
-				    is_in_faction_with = EMU
-				    has_capitulated = yes
-				}			
-			    exists = yes
-				OR = {
-				    has_government = democratic
-					has_government = fascism
-					has_government = communism
-					has_government = neutrality
+			available = {
+					AST = {
+							NOT = {
+									is_in_faction_with = EMU
+									has_capitulated = yes
+								}
+							exists = yes
+							OR = {
+									has_government = democratic
+									has_government = fascism
+									has_government = communism
+									has_government = neutrality
+								}
+						}
 				}
-			}
-		}
 			available_if_capitulated = yes
 			completion_reward = {
 					AST = {
@@ -601,24 +658,27 @@ focus_tree = {
 		y = 8
 			available = {
 					AST = {
-					    has_stability < 0.5
-						has_war_support < 0.5
-					    has_country_flag = emu_rebellion_ast
-						animalist > 0.5
-					}	
+							has_stability < 0.5
+							has_war_support < 0.5
+							has_country_flag = emu_rebellion_ast
+							animalist > 0.5
+						}
 				}
 			available_if_capitulated = yes
 			completion_reward = {
-			        AST = {
-					    custom_effect_tooltip = emu_civilwar_tt
-					}
+					AST = {
+							custom_effect_tooltip = emu_civilwar_tt
+						}
 					hidden_effect = {
 							AST = {
-									country_event = { hours = 6 id = emu.4 }
+									country_event = {
+											hours = 6
+											id = emu.4
+										}
 									set_autonomy = {
-	                                    target = AST
-	                                    autonomy_state = autonomy_free
-                                    }
+											target = AST
+											autonomy_state = autonomy_free
+										}
 									remove_from_faction = allies
 								}
 						}
@@ -635,26 +695,33 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = emu_puppet
 		}
-		available = {
-		    NOT = {
-			    EME = {
-				    is_in_faction_with = EMU
-				}
-			}
-		    EME = { exists = yes }
-			AST = { exists = yes }
-			AST = {
-			    has_war_with = EME
-			}
-		}
 		x = 2
 		y = 9
-		available_if_capitulated = yes
-		completion_reward = {
-		    EME = {
-			    country_event = { hours = 6 id = emu.1 }
-			}
-		}
+			available = {
+					NOT = {
+							EME = {
+									is_in_faction_with = EMU
+								}
+						}
+					EME = {
+							exists = yes
+						}
+					AST = {
+							exists = yes
+						}
+					AST = {
+							has_war_with = EME
+						}
+				}
+			available_if_capitulated = yes
+			completion_reward = {
+					EME = {
+							country_event = {
+									hours = 6
+									id = emu.1
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -667,24 +734,29 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = emu_faction
 		}
-		available = {
-		    EME = { exists = yes }
-			AST = { exists = yes }
-			AST = {
-			    has_war_with = EME
-			}
-		}
 		x = 0
 		y = 9
-		available_if_capitulated = yes
-		completion_reward = {
-		    EME = {
-			    country_event = {
-				    id = eme_civilwar.1
-					hours = 6
+			available = {
+					EME = {
+							exists = yes
+						}
+					AST = {
+							exists = yes
+						}
+					AST = {
+							has_war_with = EME
+							has_war_with = EMU
+						}
 				}
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					EME = {
+							country_event = {
+									id = eme_civilwar.1
+									hours = 6
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -695,34 +767,34 @@ focus_tree = {
 			focus = emu_faction
 			focus = emu_puppet
 		}
-		available = {
-		    EME = {
-			    custom_trigger_tooltip = {
-				    tooltip = australia_taken_over
-					owns_state = 517
-					owns_state = 518
-					owns_state = 285
-				    owns_state = 521
-					owns_state = 523
-					owns_state = 737
-					owns_state = 634
-					AST = {
-					    exists = no
-					}
-				}
-			}
-		}
 		x = 1
 		y = 10
-		available_if_capitulated = yes
-		completion_reward = {
-		    EME = {
-			    add_timed_idea = {
-				    idea = eme_rebuild
-					days = 1095
+			available = {
+					EME = {
+							custom_trigger_tooltip = {
+									tooltip = australia_taken_over
+									owns_state = 517
+									owns_state = 518
+									owns_state = 285
+									owns_state = 521
+									owns_state = 523
+									owns_state = 737
+									owns_state = 634
+									AST = {
+											exists = no
+										}
+								}
+						}
 				}
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					EME = {
+							add_timed_idea = {
+									idea = eme_rebuild
+									days = 1095
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -748,6 +820,17 @@ focus_tree = {
 		}
 		x = 2
 		y = 12
+
+	}
+	focus = {
+		id = emu_indonesianwar
+		icon = GFX_focus_indonesia
+		cost = 10.00
+		prerequisite = {
+			focus = emu_send
+		}
+		x = 2
+		y = 13
 
 	}
 	focus = {
@@ -843,18 +926,18 @@ focus_tree = {
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
-						name = motorized_bonus
-						bonus = 0.75
-						uses = 1
-						technology = motorised_infantry
-					}
+							name = motorized_bonus
+							bonus = 0.75
+							uses = 1
+							technology = motorised_infantry
+						}
 					add_tech_bonus = {
-						name = mechanized_bonus
-						bonus = 0.75
-						technology = mechanised_infantry
-						technology = mechanised_infantry2
-						technology = mechanised_infantry3
-					}
+							name = mechanized_bonus
+							bonus = 0.75
+							technology = mechanised_infantry
+							technology = mechanised_infantry2
+							technology = mechanised_infantry3
+						}
 				}
 
 	}
@@ -870,12 +953,12 @@ focus_tree = {
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
-						name = mechanized_bonus
-						bonus = 0.75
-						technology = mechanised_infantry
-						technology = mechanised_infantry2
-						technology = mechanised_infantry3
-					}
+							name = mechanized_bonus
+							bonus = 0.75
+							technology = mechanised_infantry
+							technology = mechanised_infantry2
+							technology = mechanised_infantry3
+						}
 				}
 
 	}
@@ -917,7 +1000,7 @@ focus_tree = {
 					create_wargoal = {
 							type = take_state_focus
 							target = NZL
-							generator = { 284 723 }
+							generator = { 284  723 }
 						}
 				}
 
@@ -932,23 +1015,23 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = emu_attack
 		}
-		bypass = {
-			NZL = {
-			    OR = {
-				    is_in_faction_with = EMU
-					has_government = animalist
-				}
-			}
-		}
 		x = 6
 		y = 7
-		available_if_capitulated = yes
-        completion_reward = {
-		    NZL = {
-			    add_ideas = emu_rebellion
-				set_country_flag = nzl_kiwi_rebellion
-			}
-		}		
+			bypass = {
+					NZL = {
+							OR = {
+									is_in_faction_with = EMU
+									has_government = animalist
+								}
+						}
+				}
+			available_if_capitulated = yes
+			completion_reward = {
+					NZL = {
+							add_ideas = emu_rebellion
+							set_country_flag = nzl_kiwi_rebellion
+						}
+				}
 
 	}
 	focus = {
@@ -969,23 +1052,91 @@ focus_tree = {
 		prerequisite = {
 			focus = emu_helprebels
 		}
-		available = {
-		    NZL = {
-			    animalist > 0.5
-			    has_country_flag = nzl_kiwi_rebellion
-			}
-		}
 		x = 6
 		y = 9
-		available_if_capitulated = yes
-		completion_reward = {
-		    NZL = {
-			    start_civil_war = {
-				    ideology = animalist
-					size = 0.5
+			available = {
+					NZL = {
+							animalist > 0.5
+							has_country_flag = nzl_kiwi_rebellion
+						}
 				}
-			}
+			available_if_capitulated = yes
+			completion_reward = {
+					NZL = {
+							start_civil_war = {
+									ideology = animalist
+									size = 0.5
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_invite_kiwi_ambassadors
+		icon = GFX_focus_generic_home_defense
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nzlwar
 		}
+		mutually_exclusive = {
+			focus = emu_kiwially
+		}
+		x = 5
+		y = 10
+
+	}
+	focus = {
+		id = emu_kiwireferendum
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = emu_invite_kiwi_ambassadors
+		}
+		mutually_exclusive = {
+			focus = emu_kiwiforce
+		}
+		x = 6
+		y = 11
+
+	}
+	focus = {
+		id = emu_kiwially
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nzlwar
+		}
+		mutually_exclusive = {
+			focus = emu_invite_kiwi_ambassadors
+		}
+		x = 7
+		y = 10
+
+	}
+	focus = {
+		id = emu_kiwi_emu_alliance
+		icon = GFX_focus_generic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = emu_kiwireferendum
+			focus = emu_kiwially
+		}
+		mutually_exclusive = {
+			focus = emu_kiwipuppet
+		}
+		x = 7
+		y = 12
+			available = {
+					any_country = {
+							original_tag = NZL
+							has_government = animalist
+							has_civil_war = yes
+						}
+				}
+			available_if_capitulated = yes
+			completion_reward = {
+					custom_effect_tooltip = emu_alliance_approval
+				}
 
 	}
 	focus = {
@@ -997,12 +1148,12 @@ focus_tree = {
 		}
 		x = 12
 		y = 1
-		available = {
-		    any_state = {
-				is_coastal = yes
-				is_controlled_by = ROOT
-			}
-		}
+			available = {
+					any_state = {
+							is_coastal = yes
+							is_controlled_by = ROOT
+						}
+				}
 			available_if_capitulated = yes
 			complete_tooltip = {
 					navy_experience = 25
@@ -1115,7 +1266,7 @@ focus_tree = {
 										}
 								}
 						}
-			}
+				}
 
 	}
 	focus = {
@@ -1363,9 +1514,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 1
-		available_if_capitulated = yes
-		completion_reward = {
-		    air_experience = 25
+			available_if_capitulated = yes
+			completion_reward = {
+					air_experience = 25
 					if = {
 							limit = {
 									capital_scope = {
@@ -1420,7 +1571,7 @@ focus_tree = {
 							uses = 1
 							category = air_doctrine
 						}
-		}
+				}
 
 	}
 	focus = {
@@ -1435,21 +1586,21 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_tech_bonus = {
-				name = fighter_bonus
-				bonus = 1.0
-				uses = 2
-				technology = early_fighter
-				technology = fighter1
-				technology = fighter2
-				technology = fighter3
-				technology = heavy_fighter1
-				technology = heavy_fighter2
-				technology = heavy_fighter3
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = fighter_bonus
+							bonus = 1.0
+							uses = 2
+							technology = early_fighter
+							technology = fighter1
+							technology = fighter2
+							technology = fighter3
+							technology = heavy_fighter1
+							technology = heavy_fighter2
+							technology = heavy_fighter3
+						}
+				}
 
 	}
 	focus = {
@@ -1461,15 +1612,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_tech_bonus = {
-			    name = air_doc_bonus
-				bonus = 1
-				uses = 3
-				category = strategic_destruction_tree
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 1
+							uses = 3
+							category = strategic_destruction_tree
+						}
+				}
 
 	}
 	focus = {
@@ -1481,16 +1632,16 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_tech_bonus = {
-				name = CAS_bonus
-				bonus = 1.0
-				ahead_reduction = 2
-				uses = 2
-				category = cas_bomber
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = CAS_bonus
+							bonus = 1.0
+							ahead_reduction = 2
+							uses = 2
+							category = cas_bomber
+						}
+				}
 
 	}
 	focus = {
@@ -1517,7 +1668,7 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
-		complete_tooltip = {
+			complete_tooltip = {
 					air_experience = 25
 					if = {
 							limit = {
@@ -1610,8 +1761,8 @@ focus_tree = {
 		}
 		x = 21
 		y = 5
-		available_if_capitulated = yes
-		complete_tooltip = {
+			available_if_capitulated = yes
+			complete_tooltip = {
 					air_experience = 50
 					if = {
 							limit = {
@@ -1743,6 +1894,73 @@ focus_tree = {
 
 	}
 	focus = {
+		id = emu_military1
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_armyreform
+		}
+		x = 29
+		y = 1
+			available = {
+					NOT = {
+							has_idea = treaty_of_uluru
+						}
+				}
+			available_if_capitulated = yes
+			completion_reward = {
+					add_ideas = { rebuild_armament_factories_1 }
+					674 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rif
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = emu_military1
+		}
+		x = 27
+		y = 3
+
+	}
+	focus = {
+		id = emu_resource
+		icon = GFX_goal_generic_oil_refinery
+		cost = 10.00
+		prerequisite = {
+			focus = emu_rif
+		}
+		mutually_exclusive = {
+			focus = emu_industryfocus
+		}
+		x = 26
+		y = 4
+
+	}
+	focus = {
+		id = emu_industryfocus
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = emu_rif
+		}
+		mutually_exclusive = {
+			focus = emu_resource
+		}
+		x = 28
+		y = 4
+
+	}
+	focus = {
 		id = emu_rocket
 		icon = GFX_focus_rocketry
 		cost = 10.00
@@ -1755,102 +1973,69 @@ focus_tree = {
 
 	}
 	focus = {
-		id = emu_nuclear
-		icon = GFX_goal_generic_construct_civ_factory
+		id = emu_military2
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
+		prerequisite = {
+			focus = emu_military1
+		}
+		x = 30
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = rebuild_armament_factories_1
+							add_idea = rebuild_armament_factories_2
+						}
+					522 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_military3
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_military2
+		}
+		x = 30
+		y = 4
+			available_if_capitulated = yes
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = rebuild_armament_factories_2
+							add_idea = rebuild_armament_factories_3
+						}
+					519 = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_ddm
+		icon = GFX_focus_generic_license_production
+		cost = 10.00
+		prerequisite = {
+			focus = emu_military3
+		}
 		prerequisite = {
 			focus = emu_rocket
 		}
-		x = 26
+		x = 28
 		y = 6
-		
-	}
-	focus = {
-		id = emu_researchslot
-		icon = GFX_focus_research
-		cost = 10.00
-		prerequisite = {
-			focus = emu_nuclear
-		}
-		x = 24
-		y = 7
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_research_slot = 1
-		}
-
-	}
-	focus = {
-		id = emu_science
-		icon = GFX_focus_research2
-		cost = 10.00
-		prerequisite = {
-			focus = emu_researchslot
-		}
-		mutually_exclusive = {
-			focus = emu_project
-		}
-		x = 22
-		y = 8
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_research_slot = 2
-		}
-
-	}
-	focus = {
-		id = emu_project
-		icon = GFX_focus_project
-		cost = 10.00
-		prerequisite = {
-			focus = emu_researchslot
-		}
-		mutually_exclusive = {
-			focus = emu_science
-		}
-		x = 26
-		y = 8
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_timed_idea = {
-			    idea = project_emu
-				days = 1095
-			}
-		}
-
-	}
-	focus = {
-		id = emu_nukes
-		icon = GFX_focus_wonderweapons
-		cost = 10.00
-		prerequisite = {
-			focus = emu_nuclear
-		}
-		x = 27
-		y = 7
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_tech_bonus = {
-			    name = nuclear_bonus
-				bonus = 1.0
-				technology = nukes
-			}
-		}
-
-	}
-	focus = {
-		id = emu_nuclearscience
-		icon = GFX_focus_research2
-		cost = 10.00
-		prerequisite = {
-			focus = emu_nukes
-		}
-		x = 29
-		y = 10
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_research_slot = 1
-		}
 
 	}
 	focus = {
@@ -1862,16 +2047,16 @@ focus_tree = {
 		}
 		x = 34
 		y = 1
-		available_if_capitulated = yes
-		completion_reward = {
-		    army_experience = 25
+			available_if_capitulated = yes
+			completion_reward = {
+					army_experience = 25
 					add_tech_bonus = {
 							name = land_doc_bonus
 							bonus = 1.0
 							uses = 1
 							category = land_doctrine
 						}
-		}
+				}
 
 	}
 	focus = {
@@ -1883,6 +2068,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 2
+
+	}
+	focus = {
+		id = emu_tankupgrade
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = emu_military2
+		}
+		prerequisite = {
+			focus = emu_tankeffort
+		}
+		x = 31
+		y = 3
 
 	}
 	focus = {
@@ -1927,11 +2126,11 @@ focus_tree = {
 		}
 		x = 35
 		y = 4
-		available_if_capitulated = yes
-		completion_reward = {
-		    custom_effect_tooltip = emu_artillery_tt
-		}
-	
+			available_if_capitulated = yes
+			completion_reward = {
+					custom_effect_tooltip = emu_artillery_tt
+				}
+
 	}
 	focus = {
 		id = emu_artilleryarmy
@@ -1945,7 +2144,7 @@ focus_tree = {
 		}
 		x = 34
 		y = 5
-		available_if_capitulated = yes
+			available_if_capitulated = yes
 
 	}
 	focus = {
@@ -1960,45 +2159,6 @@ focus_tree = {
 		}
 		x = 33
 		y = 6
-
-	}
-	focus = {
-		id = emu_nofemale
-		icon = GFX_goal_generic_dangerous_deal
-		cost = 10.00
-		prerequisite = {
-			focus = emu_male
-		}
-		x = 31
-		y = 7
-
-	}
-	focus = {
-		id = emu_forcefemale
-		icon = GFX_goal_generic_military_deal
-		cost = 10.00
-		prerequisite = {
-			focus = emu_nofemale
-		}
-		mutually_exclusive = {
-			focus = emu_femaleright
-		}
-		x = 30
-		y = 8
-
-	}
-	focus = {
-		id = emu_femaleright
-		icon = GFX_goal_generic_demand_territory
-		cost = 10.00
-		prerequisite = {
-			focus = emu_nofemale
-		}
-		mutually_exclusive = {
-			focus = emu_forcefemale
-		}
-		x = 32
-		y = 8
 
 	}
 	focus = {
@@ -2077,6 +2237,1417 @@ focus_tree = {
 
 	}
 	focus = {
+		id = emu_armaments_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_fix_the_economy
+		}
+		x = 38
+		y = 1
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = production_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = arms_factory
+											size < 1
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_armaments_effort_two
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_armaments_effort
+		}
+		x = 38
+		y = 3
+			available = {
+					has_completed_focus = emu_rebuild_economy
+				}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = production_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = arms_factory
+											size < 2
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+							type = arms_factory
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_armaments_effort_three
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_armaments_effort_two
+		}
+		x = 38
+		y = 5
+			available = {
+					has_completed_focus = emu_rebuild_economy_two
+				}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = production_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = arms_factory
+											size < 3
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+							type = arms_factory
+							level = 3
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = arms_factory
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_limitedconscription
+		icon = GFX_focus_generic_military_academy
+		cost = 10.00
+		prerequisite = {
+			focus = emu_volunteer
+		}
+		mutually_exclusive = {
+			focus = emu_forcedconscription
+		}
+		x = 38
+		y = 10
+
+	}
+	focus = {
+		id = emu_industrial_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_fix_the_economy
+		}
+		x = 40
+		y = 1
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = construction_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = industrial_complex
+											size < 2
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 1
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_industrial_effort_two
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_industrial_effort
+		}
+		x = 40
+		y = 3
+			available = {
+					has_completed_focus = emu_rebuild_economy
+				}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = construction_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = industrial_complex
+											size < 2
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 1
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_industrial_effort_three
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_industrial_effort_two
+		}
+		x = 40
+		y = 5
+			available = {
+					has_completed_focus = emu_rebuild_economy_two
+				}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = construction_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = industrial_complex
+											size < 2
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 1
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_industry_military_effort
+		icon = GFX_goal_generic_construction
+		cost = 15.00
+		prerequisite = {
+			focus = emu_armaments_effort_three
+		}
+		prerequisite = {
+			focus = emu_industrial_effort_three
+		}
+		x = 39
+		y = 6
+			available = {
+					has_completed_focus = emu_rebuild_economy_three
+				}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = construction_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = industrial_complex
+											size < 2
+											include_locked = yes
+										}
+									free_building_slots = {
+											building = arms_factory
+											size < 2
+											include_locked = yes
+										}
+								}
+						}
+				}
+			complete_tooltip = {
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = arms_factory
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 2
+											include_locked = yes
+										}
+									free_building_slots = {
+											building = arms_factory
+											size > 2
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 2
+																			include_locked = yes
+																		}
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 2
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 4
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rebuild_economy
+		icon = GFX_focus_fix_the_economy
+		cost = 50.00
+		prerequisite = {
+			focus = emu_fix_the_economy
+		}
+		x = 42
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = civilian_economy
+							add_idea = low_economic_mobilisation
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rebuild_economy_two
+		icon = GFX_focus_fix_the_economy
+		cost = 40.00
+		prerequisite = {
+			focus = emu_rebuild_economy
+		}
+		x = 42
+		y = 4
+			available_if_capitulated = yes
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = low_economic_mobilisation
+							add_idea = partial_economic_mobilisation
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rebuild_economy_three
+		icon = GFX_focus_fix_the_economy
+		cost = 30.00
+		prerequisite = {
+			focus = emu_rebuild_economy_two
+		}
+		x = 42
+		y = 6
+			available_if_capitulated = yes
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = partial_economic_mobilisation
+							add_idea = war_economy
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rebuild_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = emu_fix_the_economy
+		}
+		x = 44
+		y = 1
+			bypass = {
+					custom_trigger_tooltip = {
+							tooltip = infrastructure_effort_tt
+							all_owned_state = {
+									free_building_slots = {
+											building = infrastructure
+											size < 1
+										}
+								}
+						}
+				}
+			available_if_capitulated = yes
+			complete_tooltip = {
+					add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 1
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_rebuild_infrastructure_two
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = emu_rebuild_infrastructure
+		}
+		x = 44
+		y = 2
+			available_if_capitulated = yes
+			complete_tooltip = {
+					add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 1
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_invest_in_eme
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 20.00
+		prerequisite = {
+			focus = emu_rebuild_infrastructure_two
+		}
+		x = 43
+		y = 3
+			available = {
+					EME = {
+							exists = yes
+						}
+					OR = {
+							EME = {
+									has_government = animalist
+								}
+							EME = {
+									is_subject_of = EMU
+								}
+						}
+				}
+			available_if_capitulated = yes
+			complete_tooltip = {
+					EME = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+								}
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					EME = {
+							custom_effect_tooltip = eme_focus_effect_bug
+							517 = {
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+							518 = {
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_invest_in_ast
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 20.00
+		prerequisite = {
+			focus = emu_rebuild_infrastructure_two
+		}
+		x = 45
+		y = 3
+			available = {
+					AST = {
+							is_subject_of = EMU
+						}
+				}
+			available_if_capitulated = yes
+			complete_tooltip = {
+					AST = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+								}
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					AST = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 0
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = infrastructure
+																					size > 0
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+							521 = {
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_invest_in_nation
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 50.00
+		prerequisite = {
+			focus = emu_invest_in_eme
+		}
+		prerequisite = {
+			focus = emu_invest_in_ast
+		}
+		x = 44
+		y = 4
+			available_if_capitulated = yes
+			complete_tooltip = {
+					add_building_construction = {
+							type = infrastructure
+							level = 4
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = infrastructure
+							level = 4
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 3
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 3
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 4
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 3
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 3
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 4
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = emu_unite_the_people
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = emu_our_own_ways
+		}
+		mutually_exclusive = {
+			focus = emu_plot_the_revolution
+			focus = emu_preserve_the_wildlife
+		}
+		x = 50
+		y = 1
+
+	}
+	focus = {
+		id = emu_support_the_nationalists
+		icon = GFX_focus_support_nationalist_spain
+		cost = 10.00
+		prerequisite = {
+			focus = emu_unite_the_people
+		}
+		x = 49
+		y = 2
+
+	}
+	focus = {
+		id = emu_treaty_with_spain
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = emu_support_the_nationalists
+		}
+		x = 47
+		y = 3
+
+	}
+	focus = {
+		id = emu_renounce_treaty_of_uluru
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		cost = 10.00
+		prerequisite = {
+			focus = emu_unite_the_people
+		}
+		x = 50
+		y = 3
+
+	}
+	focus = {
+		id = emu_claims_on_australia
+		icon = GFX_focus_claims_on_australia
+		cost = 10.00
+		prerequisite = {
+			focus = emu_renounce_treaty_of_uluru
+		}
+		x = 48
+		y = 4
+
+	}
+	focus = {
+		id = emu_operation_uluru
+		icon = GFX_focus_operation_uluru
+		cost = 10.00
+		prerequisite = {
+			focus = emu_claims_on_australia
+		}
+		x = 45
+		y = 5
+
+	}
+	focus = {
+		id = emu_puppet_australia
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = emu_claims_on_australia
+		}
+		mutually_exclusive = {
+			focus = emu_annex_or_war
+		}
+		x = 50
+		y = 5
+
+	}
+	focus = {
+		id = emu_side_with_germany
+		icon = GFX_focus_chi_mission_to_germany
+		cost = 10.00
+		prerequisite = {
+			focus = emu_unite_the_people
+		}
+		x = 51
+		y = 2
+
+	}
+	focus = {
+		id = emu_emu_german_pact
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 10.00
+		prerequisite = {
+			focus = emu_side_with_germany
+		}
+		x = 51
+		y = 4
+
+	}
+	focus = {
+		id = emu_join_the_axis
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = emu_emu_german_pact
+		}
+		mutually_exclusive = {
+			focus = emu_alliance_with_japan
+		}
+		x = 51
+		y = 6
+
+	}
+	focus = {
+		id = emu_plot_the_revolution
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = emu_our_own_ways
+		}
+		mutually_exclusive = {
+			focus = emu_unite_the_people
+			focus = emu_preserve_the_wildlife
+		}
+		x = 56
+		y = 1
+
+	}
+	focus = {
+		id = emu_militarism
+		icon = GFX_focus_army
+		cost = 10.00
+		prerequisite = {
+			focus = emu_unite_the_people
+			focus = emu_plot_the_revolution
+		}
+		x = 53
+		y = 3
+
+	}
+	focus = {
+		id = emu_research_slot
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = emu_militarism
+		}
+		x = 53
+		y = 4
+
+	}
+	focus = {
+		id = emu_collaborate_with_the_japanese
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 10.00
+		prerequisite = {
+			focus = emu_emu_german_pact
+		}
+		x = 53
+		y = 5
+
+	}
+	focus = {
+		id = emu_alliance_with_japan
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = emu_collaborate_with_the_japanese
+		}
+		mutually_exclusive = {
+			focus = emu_join_the_axis
+		}
+		x = 53
+		y = 6
+
+	}
+	focus = {
+		id = emu_side_with_soviets
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10.00
+		prerequisite = {
+			focus = emu_plot_the_revolution
+		}
+		x = 55
+		y = 2
+
+	}
+	focus = {
+		id = emu_support_the_republicans
+		icon = GFX_focus_support_republican_spain
+		cost = 10.00
+		prerequisite = {
+			focus = emu_plot_the_revolution
+		}
+		x = 57
+		y = 2
+
+	}
+	focus = {
+		id = emu_preserve_the_wildlife
+		icon = GFX_goal_support_animalism
+		cost = 10.00
+		prerequisite = {
+			focus = emu_our_own_ways
+		}
+		mutually_exclusive = {
+			focus = emu_unite_the_people
+			focus = emu_plot_the_revolution
+		}
+		x = 62
+		y = 1
+
+	}
+	focus = {
+		id = emu_attack_australia
+		icon = GFX_focus_attack_australia
+		cost = 10.00
+		prerequisite = {
+			focus = emu_preserve_the_wildlife
+		}
+		mutually_exclusive = {
+			focus = emu_influence_australia
+		}
+		x = 61
+		y = 2
+
+	}
+	focus = {
+		id = emu_influence_australia
+		icon = GFX_focus_influence_australia
+		cost = 10.00
+		prerequisite = {
+			focus = emu_preserve_the_wildlife
+		}
+		mutually_exclusive = {
+			focus = emu_attack_australia
+		}
+		x = 63
+		y = 2
+
+	}
+	focus = {
+		id = emu_establish_free_elections
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = emu_a_change_of_heart
+		}
+		mutually_exclusive = {
+			focus = emu_path_to_neutrality
+		}
+		x = 70
+		y = 1
+
+	}
+	focus = {
+		id = emu_negotiate_with_humans
+		icon = GFX_focus_negotiate_with_humans
+		cost = 10.00
+		prerequisite = {
+			focus = emu_establish_free_elections
+		}
+		x = 69
+		y = 2
+
+	}
+	focus = {
+		id = side_with_britain
+		icon = GFX_focus_chi_british_cooperation
+		cost = 10.00
+		prerequisite = {
+			focus = emu_establish_free_elections
+		}
+		x = 71
+		y = 2
+
+	}
+	focus = {
+		id = emu_path_to_neutrality
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10.00
+		prerequisite = {
+			focus = emu_a_change_of_heart
+		}
+		mutually_exclusive = {
+			focus = emu_establish_free_elections
+		}
+		x = 76
+		y = 1
+
+	}
+	focus = {
+		id = emu_interventionism_policy
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = emu_path_to_neutrality
+		}
+		mutually_exclusive = {
+			focus = emu_neutral_policy
+		}
+		x = 75
+		y = 2
+
+	}
+	focus = {
+		id = emu_nuclear
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_rocket
+		}
+		x = 26
+		y = 6
+
+	}
+	focus = {
+		id = emu_researchslot
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nuclear
+		}
+		x = 24
+		y = 7
+			available_if_capitulated = yes
+			completion_reward = {
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = emu_science
+		icon = GFX_focus_research2
+		cost = 10.00
+		prerequisite = {
+			focus = emu_researchslot
+		}
+		mutually_exclusive = {
+			focus = emu_project
+		}
+		x = 22
+		y = 8
+			available_if_capitulated = yes
+			completion_reward = {
+					add_research_slot = 2
+				}
+
+	}
+	focus = {
+		id = emu_project
+		icon = GFX_focus_project
+		cost = 10.00
+		prerequisite = {
+			focus = emu_researchslot
+		}
+		mutually_exclusive = {
+			focus = emu_science
+		}
+		x = 26
+		y = 8
+			available_if_capitulated = yes
+			completion_reward = {
+					add_timed_idea = {
+							idea = project_emu
+							days = 1095
+						}
+				}
+
+	}
+	focus = {
+		id = emu_nukes
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nuclear
+		}
+		x = 27
+		y = 7
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							bonus = 1.0
+							technology = nukes
+						}
+				}
+
+	}
+	focus = {
+		id = emu_nuclearscience
+		icon = GFX_focus_research2
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nukes
+		}
+		x = 29
+		y = 10
+			available_if_capitulated = yes
+			completion_reward = {
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = emu_nofemale
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = emu_male
+		}
+		x = 31
+		y = 7
+
+	}
+	focus = {
+		id = emu_forcefemale
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nofemale
+		}
+		mutually_exclusive = {
+			focus = emu_femaleright
+		}
+		x = 30
+		y = 8
+
+	}
+	focus = {
+		id = emu_femaleright
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = emu_nofemale
+		}
+		mutually_exclusive = {
+			focus = emu_forcefemale
+		}
+		x = 32
+		y = 8
+
+	}
+	focus = {
 		id = emu_reinforce
 		icon = GFX_goal_generic_military_sphere
 		cost = 10.00
@@ -2105,21 +3676,21 @@ focus_tree = {
 		prerequisite = {
 			focus = emu_reinforce
 		}
-		available = {
-		    NZL = {
-			    has_war_with = EMU
-			    has_capitulated = yes 			
-			}
-		}
 		x = 4
 		y = 9
+			available = {
+					NZL = {
+							has_war_with = EMU
+							has_capitulated = yes
+						}
+				}
 			available_if_capitulated = yes
 			completion_reward = {
-				annex_country = {
-					target = NZL
-					transfer_troops = yes
+					annex_country = {
+							target = NZL
+							transfer_troops = yes
+						}
 				}
-			}
 
 	}
 	focus = {
@@ -2161,9 +3732,9 @@ focus_tree = {
 							bonus = 1
 							uses = 5
 							category = naval_doctrine
-					}
-				custom_effect_tooltip = emu_enavy_tt	
-			}
+						}
+					custom_effect_tooltip = emu_enavy_tt
+				}
 
 	}
 	focus = {
@@ -2195,6 +3766,12 @@ focus_tree = {
 		}
 		x = 0
 		y = 11
+			available_if_capitulated = yes
+			completion_reward = {
+					EME = {
+							add_ideas = { eme_prioritising_neutrality }
+						}
+				}
 
 	}
 	focus = {
@@ -2217,23 +3794,12 @@ focus_tree = {
 		}
 		x = 0
 		y = 13
-		available_if_capitulated = yes
-		completion_reward = {
-		    EME = {
-			    add_ideas = { neutrality_idea }
-			}
-		}
-
-	}
-	focus = {
-		id = emu_indonesianwar
-		icon = GFX_focus_indonesia
-		cost = 10.00
-		prerequisite = {
-			focus = emu_send
-		}
-		x = 2
-		y = 13
+			available_if_capitulated = yes
+			completion_reward = {
+					EME = {
+							add_ideas = { neutrality_idea }
+						}
+				}
 
 	}
 	focus = {
@@ -2245,18 +3811,18 @@ focus_tree = {
 		}
 		x = 18
 		y = 4
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_tech_bonus = {
-			    name = naval_bonus
-				bonus = 1
-				uses = 1
-				category = cv_tech
-				technology = subsidiary_carrier_role_ti
-				technology = naval_air_operations
-				technology = floating_airfield_ti
-			}
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = naval_bonus
+							bonus = 1
+							uses = 1
+							category = cv_tech
+							technology = subsidiary_carrier_role_ti
+							technology = naval_air_operations
+							technology = floating_airfield_ti
+						}
+				}
 
 	}
 	focus = {
@@ -2282,7 +3848,7 @@ focus_tree = {
 			focus = emu_navalair
 		}
 		prerequisite = {
-		    focus = emu_airdoctrinetwo
+			focus = emu_airdoctrinetwo
 		}
 		x = 21
 		y = 6
@@ -2298,10 +3864,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 7
-		available_if_capitulated = yes
-		completion_reward = {
-		    remove_ideas = delusional_commanders
-		}
+			available_if_capitulated = yes
+			completion_reward = {
+					remove_ideas = delusional_commanders
+				}
 
 	}
 	focus = {
@@ -2316,20 +3882,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = emu_limitedconscription
-		icon = GFX_focus_generic_military_academy
-		cost = 10.00
-		prerequisite = {
-			focus = emu_volunteer
-		}
-		mutually_exclusive = {
-			focus = emu_forcedconscription
-		}
-		x = 38
-		y = 10
-
-	}
-	focus = {
 		id = emu_maleluxury
 		icon = GFX_focus_generic_concessions
 		cost = 10.00
@@ -2338,170 +3890,6 @@ focus_tree = {
 		}
 		x = 30
 		y = 9
-
-	}
-	focus = {
-		id = emu_military1
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = emu_armyreform
-		}
-		available = {
-		    NOT = {
-			    has_idea = treaty_of_uluru
-			}
-		}
-		x = 29
-		y = 1
-		available_if_capitulated = yes
-		completion_reward = {
-			add_ideas = { rebuild_armament_factories_1 }
-			674 = {
-			    add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-				    type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = emu_rif
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = emu_military1
-		}
-		x = 27
-		y = 3
-		available_if_capitulated = yes
-		completion_reward = {
-		    custom_effect_tooltip = emu_rif_tt
-			swap_ideas = {
-			    remove_idea = broken_economy
-				add_idea = civilian_economy
-			}
-		}
-		ai_will_do = {
-		    factor = 40
-			
-			modifier = {
-			    factor = 1000
-				
-				has_idea = broken_economy
-			}
-		}
-
-	}
-	focus = {
-		id = emu_resource
-		icon = GFX_goal_generic_oil_refinery
-		cost = 10.00
-		prerequisite = {
-			focus = emu_rif
-		}
-		mutually_exclusive = {
-			focus = emu_industryfocus
-		}
-		x = 26
-		y = 4
-
-	}
-	focus = {
-		id = emu_industryfocus
-		icon = GFX_goal_generic_production
-		cost = 10.00
-		prerequisite = {
-			focus = emu_rif
-		}
-		mutually_exclusive = {
-			focus = emu_resource
-		}
-		x = 28
-		y = 4
-
-	}
-	focus = {
-		id = emu_military2
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = emu_military1
-		}
-		x = 30
-		y = 2
-		available_if_capitulated = yes
-		completion_reward = {
-		    swap_ideas = {
-			    remove_idea = rebuild_armament_factories_1
-				add_idea = rebuild_armament_factories_2
-			}
-			522 = {
-			    add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-				    type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = emu_military3
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = emu_military2
-		}
-		x = 30
-		y = 4
-		available_if_capitulated = yes
-		completion_reward = {
-		    swap_ideas = {
-			    remove_idea = rebuild_armament_factories_2
-				add_idea = rebuild_armament_factories_3
-			}
-			519 = {
-			    add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-				    type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = emu_ddm
-		icon = GFX_focus_generic_license_production
-		cost = 10.00
-		prerequisite = {
-			focus = emu_military3
-		}
-		prerequisite = {
-		    focus = emu_rocket
-		}
-		x = 28
-		y = 6
-
-	}
-	focus = {
-		id = emu_tankupgrade
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = emu_military2
-		}
-		prerequisite = {
-			focus = emu_tankeffort
-		}
-		x = 31
-		y = 3
 
 	}
 	focus = {
@@ -2519,19 +3907,19 @@ focus_tree = {
 		}
 		x = 31
 		y = 6
-		available_if_capitulated = yes
-		completion_reward = {
-		    add_stability = -0.1
-			add_war_support = 0.1
-		    every_owned_state = {
-			    add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-				    type = arms_factory
-					level = 4
-					instant_build = yes
+			available_if_capitulated = yes
+			completion_reward = {
+					add_stability = -0.1
+					add_war_support = 0.1
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 4
+							add_building_construction = {
+									type = arms_factory
+									level = 4
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
 
 	}
 	focus = {
@@ -2571,26 +3959,26 @@ focus_tree = {
 			focus = emu_invite_kiwi_ambassadors
 			focus = emu_kiwially
 		}
-		available = {
-		    any_other_country = {
-			    original_tag = NZL
-				has_government = animalist
-				has_civil_war = no
-			}
-		}
-		cancel_if_invalid = yes
 		x = 9
 		y = 11
-		available_if_capitulated = yes
-		completion_reward = {
-		    random_other_country = {
-				limit = {
-					original_tag = NZL
-					has_government = animalist
+			available = {
+					any_other_country = {
+							original_tag = NZL
+							has_government = animalist
+							has_civil_war = no
+						}
 				}
-				add_ideas = { eme_rebuild }
-			}
-		}
+			cancel_if_invalid = yes
+			available_if_capitulated = yes
+			completion_reward = {
+					random_other_country = {
+							limit = {
+									original_tag = NZL
+									has_government = animalist
+								}
+							add_ideas = { eme_rebuild }
+						}
+				}
 
 	}
 	focus = {
@@ -2645,9 +4033,9 @@ focus_tree = {
 			focus = emu_kiwisupport
 		}
 		mutually_exclusive = {
-			focus = emu_kiwiartillery
 			focus = emu_kiwiguns
 			focus = emu_kiwitanks
+			focus = emu_kiwiartillery
 		}
 		x = 9
 		y = 14
@@ -2661,80 +4049,62 @@ focus_tree = {
 			focus = emu_kiwisupport
 		}
 		mutually_exclusive = {
+			focus = emu_kiwiguns
 			focus = emu_kiwitanks
 			focus = emu_kiwiplanes
-			focus = emu_kiwiguns
 		}
 		x = 7
 		y = 14
 
 	}
 	focus = {
-		id = emu_invite_kiwi_ambassadors
-		icon = GFX_focus_generic_home_defense
+		id = emu_neutral_policy
+		icon = GFX_goal_generic_defence
 		cost = 10.00
 		prerequisite = {
-			focus = emu_nzlwar
+			focus = emu_path_to_neutrality
 		}
 		mutually_exclusive = {
-			focus = emu_kiwially
+			focus = emu_interventionism_policy
 		}
-		x = 5
-		y = 10
+		x = 77
+		y = 2
 
 	}
 	focus = {
-		id = emu_kiwireferendum
-		icon = GFX_goal_generic_forceful_treaty
+		id = emu_annex_or_war
+		icon = GFX_goal_generic_demand_territory
 		cost = 10.00
 		prerequisite = {
-			focus = emu_invite_kiwi_ambassadors
+			focus = emu_claims_on_australia
 		}
 		mutually_exclusive = {
-			focus = emu_kiwiforce
+			focus = emu_puppet_australia
 		}
-		x = 6
-		y = 11
+		x = 48
+		y = 5
 
 	}
 	focus = {
-		id = emu_kiwially
-		icon = GFX_goal_generic_major_alliance
+		id = emu_operation_komodo
+		icon = GFX_focus_indonesia
 		cost = 10.00
 		prerequisite = {
-			focus = emu_nzlwar
+			focus = emu_annex_or_war
 		}
-		mutually_exclusive = {
-			focus = emu_invite_kiwi_ambassadors
-		}
-		x = 7
-		y = 10
+		x = 46
+		y = 6
 
 	}
 	focus = {
-		id = emu_kiwi_emu_alliance
-		icon = GFX_focus_generic_treaty
+		id = emu_triumph_in_australia
+		icon = GFX_goal_generic_political_pressure
 		cost = 10.00
 		prerequisite = {
-			focus = emu_kiwireferendum
-			focus = emu_kiwially
+			focus = emu_annex_or_war
 		}
-		mutually_exclusive = {
-			focus = emu_kiwipuppet
-		}
-		available = {
-		    any_country = {
-			    original_tag = NZL
-				has_government = animalist
-				has_civil_war = yes
-			}
-		}
-		x = 7
-		y = 12
-		available_if_capitulated = yes
-		completion_reward = {
-		    custom_effect_tooltip = emu_alliance_approval
-		}
+		x = 49
+		y = 6
 
 	}	
 }
