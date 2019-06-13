@@ -46,6 +46,34 @@ spriteTypes = {
 	    name = "GFX_focus_emunzl"
 		texturefile = "gfx/interface/goals/focus_emunzl.dds"
 	}
+	SpriteType = {
+	    name = "GFX_focus_fix_the_economy"
+		texturefile = "gfx/interface/goals/focus_fix_the_economy.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_support_nationalist_spain"
+		texturefile = "gfx/interface/goals/focus_support_nationalist_spain.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_support_republican_spain"
+		texturefile = "gfx/interface/goals/focus_support_republican_spain.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_negotiate_with_humans"
+		texturefile = "gfx/interface/goals/focus_negotiate_with_humans.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_influence_australia"
+		texturefile = "gfx/interface/goals/focus_influence_australia.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_claims_on_australia"
+		texturefile = "gfx/interface/goals/focus_claims_on_australia.dds"
+	}
+	SpriteType = {
+	    name = "GFX_focus_operation_uluru"
+		texturefile = "gfx/interface/goals/focus_operation_uluru.dds"
+	}
 	
 	### USA ###
 	
@@ -62,7 +90,14 @@ spriteTypes = {
 	}
     SpriteType = {
 	    name = "GFX_focus_betray_emus"
-		texturefile = "gfx/interface/goals/focus_betrayemus.dds"
-	}	
+		texturefile = "gfx/interface/goals/focus_betray_emus.dds"
+	}
+
+    ### Generic ###
+
+	SpriteType = {
+	    name = "GFX_goal_support_animalism"
+		texturefile = "gfx/interface/goals/goal_support_animalism.dds"
+	}    	
 
 }
